@@ -1,0 +1,136 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Projects",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Project_Name": {
+      "type": "string",
+      "required": true
+    },
+    "RegNo": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Min_Price": {
+      "type": "integer",
+      "required": true
+    },
+    "Max_Price": {
+      "type": "integer",
+      "required": true
+    },
+    "Total_Floors": {
+      "type": "integer",
+      "required": true
+    },
+    "TotalPropertySize": {
+      "type": "integer",
+      "required": true
+    },
+    "Possession_Month_Year": {
+      "type": "date"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Project_Configuration": {
+      "type": "string"
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Keyword": {
+      "type": "string"
+    },
+    "Schema": {
+      "type": "text"
+    },
+    "Meta_description": {
+      "type": "text"
+    },
+    "Address": {
+      "type": "text",
+      "required": true
+    },
+    "Project_Disclaimer": {
+      "type": "text"
+    },
+    "Add_Price_List": {
+      "type": "component",
+      "repeatable": false,
+      "component": "price-list.create-price-list"
+    },
+    "Floor_Plan": {
+      "type": "component",
+      "repeatable": false,
+      "component": "floor-plan.create-floor-plan"
+    },
+    "Brochures": {
+      "type": "component",
+      "repeatable": true,
+      "component": "brochure.create-brochure"
+    },
+    "Near_Areas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "near-areas.create-near-areas"
+    },
+    "Location_Map": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location-map.add-location-map"
+    },
+    "Residence_Video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "residence-video.add-residence-video"
+    },
+    "Specifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "specifications.create-specifications"
+    },
+    "amenities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::amenity.amenity"
+    },
+    "builder": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::builder.builder"
+    },
+    "property_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::property-type.property-type"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "sub_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-category.sub-category"
+    }
+  }
+}

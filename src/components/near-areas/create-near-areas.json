@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_near_areas_create_near_areas",
+  "info": {
+    "displayName": "Create-Near-Areas",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "Area_Name": {
+      "type": "string"
+    }
+  }
+}

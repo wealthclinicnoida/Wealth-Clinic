@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_price_list_create_price_lists",
+  "info": {
+    "displayName": "Create Price List",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "Price_List": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_branches_create_branches",
+  "info": {
+    "displayName": "Create Branches",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Branch_Name": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Contact": {
+      "type": "biginteger"
+    },
+    "HR_Contact": {
+      "type": "biginteger"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

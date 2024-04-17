@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "create_states",
+  "info": {
+    "singularName": "create-state",
+    "pluralName": "create-states",
+    "displayName": "Create State",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "State_Name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::countrie.countrie"
+    },
+    "builder": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::builder.builder"
+    }
+  }
+}

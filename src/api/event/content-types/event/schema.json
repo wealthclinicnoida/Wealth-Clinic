@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Events",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Featured_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Start_Date": {
+      "type": "date",
+      "required": true
+    },
+    "End_Date": {
+      "type": "date"
+    },
+    "Venue": {
+      "type": "text"
+    },
+    "Event_Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Keyword": {
+      "type": "text"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Schema": {
+      "type": "text"
+    },
+    "create_cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::create-city.create-city"
+    },
+    "create_states": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::create-state.create-state"
+    },
+    "countries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::countrie.countrie"
+    }
+  }
+}

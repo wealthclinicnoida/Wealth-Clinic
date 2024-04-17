@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_floor_plan_create_floor_plans",
+  "info": {
+    "displayName": "Create-Floor-Plan",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "Images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

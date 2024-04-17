@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_our_ethos_create_ethos",
+  "info": {
+    "displayName": "Create Ethos"
+  },
+  "options": {},
+  "attributes": {
+    "Ethos_Icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Ethos_Title": {
+      "type": "string"
+    },
+    "Ethos_Description": {
+      "type": "text"
+    }
+  }
+}

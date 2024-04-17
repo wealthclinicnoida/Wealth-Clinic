@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_departments",
+  "info": {
+    "singularName": "career-department",
+    "pluralName": "career-departments",
+    "displayName": "Career-Department"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Department_Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

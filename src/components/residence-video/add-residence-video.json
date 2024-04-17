@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_residence_video_add_residence_videos",
+  "info": {
+    "displayName": "Add-Residence-Video",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "Residence_Video": {
+      "type": "string"
+    }
+  }
+}

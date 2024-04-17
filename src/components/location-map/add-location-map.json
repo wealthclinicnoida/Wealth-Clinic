@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_location_map_add_location_maps",
+  "info": {
+    "displayName": "Add-Location-Map",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "Location_Map": {
+      "type": "text"
+    },
+    "Location_Description": {
+      "type": "text"
+    }
+  }
+}

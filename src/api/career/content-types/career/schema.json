@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "careers",
+  "info": {
+    "singularName": "career",
+    "pluralName": "careers",
+    "displayName": "Career",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Career_Heading": {
+      "type": "string",
+      "required": true
+    },
+    "Career_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Career_Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Ethos_Heading": {
+      "type": "string",
+      "required": true
+    },
+    "Add_Ethos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "our-ethos.create-ethos"
+    },
+    "Ethos_Description": {
+      "type": "text",
+      "required": false
+    },
+    "Benefits_Perks_Heading": {
+      "type": "string",
+      "required": true
+    },
+    "Benefits_And_Perks_Description": {
+      "type": "text"
+    },
+    "Benefits_Perks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "benefits-perks.create-benefits-and-perks"
+    },
+    "career_positions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::career-position.career-position"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "builders",
+  "info": {
+    "singularName": "builder",
+    "pluralName": "builders",
+    "displayName": "Builders",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Builder_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Builder_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Builder_Experience": {
+      "type": "integer"
+    },
+    "Total_Projects_of_Builder": {
+      "type": "integer"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Zip_Code": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "biginteger"
+    },
+    "Builder_Disclaimer": {
+      "type": "text"
+    },
+    "countries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::countrie.countrie"
+    },
+    "create_states": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::create-state.create-state"
+    },
+    "create_cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::create-city.create-city"
+    }
+  }
+}

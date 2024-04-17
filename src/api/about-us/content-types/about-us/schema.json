@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "About-US",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AboutUs_Heading": {
+      "type": "string",
+      "required": true
+    },
+    "AboutUs_Title": {
+      "type": "string",
+      "required": true
+    },
+    "AboutUs_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "AboutUs_Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Our_Vision_Title": {
+      "type": "string"
+    },
+    "Our_Vision_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Our_Vision_Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Our_Mission_Title": {
+      "type": "string"
+    },
+    "Our_Mission_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Our_Mission_Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Add_PIllers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "four-pillers.create-pillers"
+    },
+    "Four_Piller_Heading": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

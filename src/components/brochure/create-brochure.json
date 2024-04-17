@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_brochure_create_brochures",
+  "info": {
+    "displayName": "Create Brochure",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "Brochure": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

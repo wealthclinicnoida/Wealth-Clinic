@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonials"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Testimonials_Name": {
+      "type": "string",
+      "required": true
+    },
+    "YouTube_Thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "YouTube_link": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_positions",
+  "info": {
+    "singularName": "career-position",
+    "pluralName": "career-positions",
+    "displayName": "Career-Position",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Position_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Position_Location": {
+      "type": "string",
+      "required": true
+    },
+    "Position_Description": {
+      "type": "blocks",
+      "required": false
+    },
+    "career_department": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::career-department.career-department"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_specifications_create_specifications",
+  "info": {
+    "displayName": "Create-Specifications",
+    "icon": "pin"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Descriptions": {
+      "type": "text"
+    }
+  }
+}

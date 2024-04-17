@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "all_social_media_links",
+  "info": {
+    "singularName": "all-social-media-link",
+    "pluralName": "all-social-media-links",
+    "displayName": "All-Social-Media-Links",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Facebook_URL": {
+      "type": "string",
+      "required": true
+    },
+    "Instagram_URL": {
+      "type": "string",
+      "required": true
+    },
+    "Twitter_URL": {
+      "type": "string",
+      "required": true
+    },
+    "Linkdin_URL": {
+      "type": "string",
+      "required": true
+    },
+    "YouTube_URL": {
+      "type": "string",
+      "required": true
+    },
+    "WhatsApp_URL": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

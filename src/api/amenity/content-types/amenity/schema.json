@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "amenities",
+  "info": {
+    "singularName": "amenity",
+    "pluralName": "amenities",
+    "displayName": "Amenity",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "amenity_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::amenity-category.amenity-category"
+    }
+  }
+}

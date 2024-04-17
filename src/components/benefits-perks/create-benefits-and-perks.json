@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_benefits_perks_create_benefits_and_perks",
+  "info": {
+    "displayName": "Create-Benefits-And-Perks"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

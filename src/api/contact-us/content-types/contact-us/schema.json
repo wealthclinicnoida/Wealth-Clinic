@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_uses",
+  "info": {
+    "singularName": "contact-us",
+    "pluralName": "contact-uses",
+    "displayName": "ContactUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Branches": {
+      "type": "component",
+      "repeatable": true,
+      "component": "branches.create-branches"
+    }
+  }
+}
