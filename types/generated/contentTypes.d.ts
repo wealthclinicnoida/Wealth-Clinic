@@ -857,6 +857,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     Owner_Name_2: Attribute.String;
     Owner_Designation_2: Attribute.String;
     Full_Description_2: Attribute.Text;
+    Owner_Image: Attribute.Media;
+    Owner_Image_2: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
