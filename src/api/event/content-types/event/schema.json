@@ -64,6 +64,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::countrie.countrie"
+    },
+    "Enter_The_Time": {
+      "type": "time",
+      "required": true
     }
   }
 }

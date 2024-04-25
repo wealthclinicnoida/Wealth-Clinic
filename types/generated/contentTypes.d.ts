@@ -1469,6 +1469,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'oneToMany',
       'api::countrie.countrie'
     >;
+    Enter_The_Time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
