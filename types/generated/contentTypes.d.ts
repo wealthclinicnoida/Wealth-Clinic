@@ -851,6 +851,12 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     Our_Mission_Description: Attribute.Blocks & Attribute.Required;
     Add_PIllers: Attribute.Component<'four-pillers.create-pillers', true>;
     Four_Piller_Heading: Attribute.String & Attribute.Required;
+    Owner_Name: Attribute.String;
+    Owner_Designation: Attribute.String & Attribute.Required;
+    Full_Description: Attribute.Text;
+    Owner_Name_2: Attribute.String;
+    Owner_Designation_2: Attribute.String;
+    Full_Description_2: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

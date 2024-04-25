@@ -70,6 +70,25 @@
     "Four_Piller_Heading": {
       "type": "string",
       "required": true
+    },
+    "Owner_Name": {
+      "type": "string"
+    },
+    "Owner_Designation": {
+      "type": "string",
+      "required": true
+    },
+    "Full_Description": {
+      "type": "text"
+    },
+    "Owner_Name_2": {
+      "type": "string"
+    },
+    "Owner_Designation_2": {
+      "type": "string"
+    },
+    "Full_Description_2": {
+      "type": "text"
     }
   }
 }
