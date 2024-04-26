@@ -1597,6 +1597,21 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::sub-category.sub-category'
     >;
+    country: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::countrie.countrie'
+    >;
+    create_state: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::create-state.create-state'
+    >;
+    create_city: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::create-city.create-city'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

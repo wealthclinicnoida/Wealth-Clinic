@@ -131,6 +131,21 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::sub-category.sub-category"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::countrie.countrie"
+    },
+    "create_state": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::create-state.create-state"
+    },
+    "create_city": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::create-city.create-city"
     }
   }
 }
