@@ -24,6 +24,7 @@ export interface BranchesCreateBranches extends Schema.Component {
     HR_Contact: Attribute.BigInteger;
     Address: Attribute.Text;
     Image: Attribute.Media & Attribute.Required;
+    main_heading: Attribute.String;
   };
 }
 

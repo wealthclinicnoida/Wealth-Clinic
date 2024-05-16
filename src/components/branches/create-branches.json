@@ -22,12 +22,15 @@
       "type": "text"
     },
     "Image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "main_heading": {
+      "type": "string"
     }
   }
 }
