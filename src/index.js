@@ -18,3 +18,5 @@ module.exports = {
    */
   bootstrap(/*{ strapi }*/) {},
 };
+
+// koral
