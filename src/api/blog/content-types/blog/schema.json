@@ -47,6 +47,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog-category.blog-category"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment"
     }
   }
 }

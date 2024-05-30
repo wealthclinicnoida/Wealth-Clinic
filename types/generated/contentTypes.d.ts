@@ -1041,6 +1041,11 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'oneToMany',
       'api::blog-category.blog-category'
     >;
+    comments: Attribute.Relation<
+      'api::blog.blog',
+      'oneToMany',
+      'api::comment.comment'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1276,6 +1281,39 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCommentComment extends Schema.CollectionType {
+  collectionName: 'comments';
+  info: {
+    singularName: 'comment';
+    pluralName: 'comments';
+    displayName: 'Comment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    UserName: Attribute.String & Attribute.Required;
+    comments: Attribute.Text & Attribute.Required;
+    blogId: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::comment.comment',
       'oneToOne',
       'admin::user'
     > &
@@ -1786,6 +1824,7 @@ declare module '@strapi/types' {
       'api::career-department.career-department': ApiCareerDepartmentCareerDepartment;
       'api::career-position.career-position': ApiCareerPositionCareerPosition;
       'api::category.category': ApiCategoryCategory;
+      'api::comment.comment': ApiCommentComment;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::countrie.countrie': ApiCountrieCountrie;
       'api::create-city.create-city': ApiCreateCityCreateCity;

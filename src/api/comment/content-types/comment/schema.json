@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "singularName": "comment",
+    "pluralName": "comments",
+    "displayName": "Comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UserName": {
+      "type": "string",
+      "required": true
+    },
+    "comments": {
+      "type": "text",
+      "required": true
+    },
+    "blogId": {
+      "type": "integer"
+    }
+  }
+}
