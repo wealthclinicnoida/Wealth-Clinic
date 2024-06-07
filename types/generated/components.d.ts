@@ -44,9 +44,10 @@ export interface FloorPlanCreateFloorPlan extends Schema.Component {
   info: {
     displayName: 'Create-Floor-Plan';
     icon: 'filter';
+    description: '';
   };
   attributes: {
-    Images: Attribute.Media & Attribute.Required;
+    Images: Attribute.Media;
   };
 }
 
@@ -104,9 +105,10 @@ export interface PriceListCreatePriceList extends Schema.Component {
   info: {
     displayName: 'Create Price List';
     icon: 'stack';
+    description: '';
   };
   attributes: {
-    Price_List: Attribute.Media & Attribute.Required;
+    Price_List: Attribute.Media;
   };
 }
 

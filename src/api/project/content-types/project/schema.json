@@ -14,35 +14,35 @@
   "attributes": {
     "Project_Name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "RegNo": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Image": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
     },
     "Min_Price": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "Max_Price": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "Total_Floors": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "TotalPropertySize": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "Possession_Month_Year": {
       "type": "date"
@@ -67,7 +67,7 @@
     },
     "Address": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "Project_Disclaimer": {
       "type": "text"

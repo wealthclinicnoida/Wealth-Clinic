@@ -1584,13 +1584,13 @@ export interface ApiProjectProject extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Project_Name: Attribute.String & Attribute.Required;
-    RegNo: Attribute.String & Attribute.Required;
-    Image: Attribute.Media & Attribute.Required;
-    Min_Price: Attribute.Integer & Attribute.Required;
-    Max_Price: Attribute.Integer & Attribute.Required;
-    Total_Floors: Attribute.Integer & Attribute.Required;
-    TotalPropertySize: Attribute.Integer & Attribute.Required;
+    Project_Name: Attribute.String;
+    RegNo: Attribute.String;
+    Image: Attribute.Media;
+    Min_Price: Attribute.Integer;
+    Max_Price: Attribute.Integer;
+    Total_Floors: Attribute.Integer;
+    TotalPropertySize: Attribute.Integer;
     Possession_Month_Year: Attribute.Date;
     Description: Attribute.Blocks;
     Project_Configuration: Attribute.String;
@@ -1598,7 +1598,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     Meta_Keyword: Attribute.String;
     Schema: Attribute.Text;
     Meta_description: Attribute.Text;
-    Address: Attribute.Text & Attribute.Required;
+    Address: Attribute.Text;
     Project_Disclaimer: Attribute.Text;
     Add_Price_List: Attribute.Component<'price-list.create-price-list'>;
     Floor_Plan: Attribute.Component<'floor-plan.create-floor-plan'>;
