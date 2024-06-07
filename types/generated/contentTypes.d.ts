@@ -1650,6 +1650,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::create-city.create-city'
     >;
+    Priority: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -146,6 +146,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::create-city.create-city"
+    },
+    "Priority": {
+      "type": "boolean"
     }
   }
 }
