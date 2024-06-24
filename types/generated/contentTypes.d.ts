@@ -1032,7 +1032,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     Image: Attribute.Media & Attribute.Required;
     Pubish_Date: Attribute.Date & Attribute.Required;
     Meta_Title: Attribute.String;
-    Meta_description: Attribute.Text;
+    Meta_Description: Attribute.Text;
     Meta_Keyword: Attribute.Text;
     Schema: Attribute.Text;
     Description: Attribute.Blocks;
@@ -1046,6 +1046,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'oneToMany',
       'api::comment.comment'
     >;
+    Meta_Link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1460,6 +1461,10 @@ export interface ApiCreateStateCreateState extends Schema.CollectionType {
       'oneToOne',
       'api::builder.builder'
     >;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
+    Meta_Link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1597,7 +1602,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     Meta_Title: Attribute.String;
     Meta_Keyword: Attribute.String;
     Schema: Attribute.Text;
-    Meta_description: Attribute.Text;
+    Meta_Description: Attribute.Text;
     Address: Attribute.Text;
     Project_Disclaimer: Attribute.Text;
     Add_Price_List: Attribute.Component<'price-list.create-price-list'>;
@@ -1651,6 +1656,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'api::create-city.create-city'
     >;
     Priority: Attribute.Boolean;
+    Meta_Link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -62,7 +62,7 @@
     "Schema": {
       "type": "text"
     },
-    "Meta_description": {
+    "Meta_Description": {
       "type": "text"
     },
     "Address": {
@@ -149,6 +149,9 @@
     },
     "Priority": {
       "type": "boolean"
+    },
+    "Meta_Link": {
+      "type": "string"
     }
   }
 }

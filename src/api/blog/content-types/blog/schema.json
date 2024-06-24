@@ -31,7 +31,7 @@
     "Meta_Title": {
       "type": "string"
     },
-    "Meta_description": {
+    "Meta_Description": {
       "type": "text"
     },
     "Meta_Keyword": {
@@ -52,6 +52,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::comment.comment"
+    },
+    "Meta_Link": {
+      "type": "string"
     }
   }
 }
