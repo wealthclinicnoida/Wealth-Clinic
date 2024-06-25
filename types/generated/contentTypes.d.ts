@@ -1627,6 +1627,39 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiHappyCustomerHappyCustomer extends Schema.SingleType {
+  collectionName: 'happy_customers';
+  info: {
+    singularName: 'happy-customer';
+    pluralName: 'happy-customers';
+    displayName: 'Happy Customer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Meta_Title: Attribute.String;
+    Meta_Keyword: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::happy-customer.happy-customer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::happy-customer.happy-customer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMediaCoverageMediaCoverage extends Schema.CollectionType {
   collectionName: 'media_coverages';
   info: {
@@ -1994,6 +2027,7 @@ declare module '@strapi/types' {
       'api::create-state.create-state': ApiCreateStateCreateState;
       'api::disclaimer.disclaimer': ApiDisclaimerDisclaimer;
       'api::event.event': ApiEventEvent;
+      'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;

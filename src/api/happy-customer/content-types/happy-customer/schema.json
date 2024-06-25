@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "happy_customers",
+  "info": {
+    "singularName": "happy-customer",
+    "pluralName": "happy-customers",
+    "displayName": "Happy Customer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Keyword": {
+      "type": "string"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    }
+  }
+}
