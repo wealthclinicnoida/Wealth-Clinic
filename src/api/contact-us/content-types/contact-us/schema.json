@@ -20,6 +20,18 @@
       "type": "component",
       "repeatable": true,
       "component": "branches.create-branches"
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Meta_Keyword": {
+      "type": "string"
     }
   }
 }

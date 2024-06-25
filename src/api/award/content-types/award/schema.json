@@ -4,7 +4,8 @@
   "info": {
     "singularName": "award",
     "pluralName": "awards",
-    "displayName": "Award"
+    "displayName": "Award",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,15 +20,27 @@
       "type": "date"
     },
     "Award_Image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Description": {
       "type": "text"
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Meta_Keyword": {
+      "type": "string"
     }
   }
 }

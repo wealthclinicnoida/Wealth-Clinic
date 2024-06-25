@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "client_satisfactions",
+  "info": {
+    "singularName": "client-satisfaction",
+    "pluralName": "client-satisfactions",
+    "displayName": "Client satisfaction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Keyword": {
+      "type": "string"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "string"
+    }
+  }
+}

@@ -111,6 +111,18 @@
         "videos",
         "audios"
       ]
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Meta_Keyword": {
+      "type": "string"
+    },
+    "Meta_Link": {
+      "type": "string"
     }
   }
 }

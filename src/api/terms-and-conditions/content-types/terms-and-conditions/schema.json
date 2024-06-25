@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "term_and_conditions",
+  "info": {
+    "singularName": "terms-and-conditions",
+    "pluralName": "term-and-conditions",
+    "displayName": "Terms and conditions"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Keyword": {
+      "type": "string"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "string"
+    }
+  }
+}

@@ -859,6 +859,10 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     Full_Description_2: Attribute.Text;
     Owner_Image: Attribute.Media;
     Owner_Image_2: Attribute.Media;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
+    Meta_Link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -989,6 +993,7 @@ export interface ApiAwardAward extends Schema.CollectionType {
     singularName: 'award';
     pluralName: 'awards';
     displayName: 'Award';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -998,6 +1003,10 @@ export interface ApiAwardAward extends Schema.CollectionType {
     Award_Date: Attribute.Date;
     Award_Image: Attribute.Media & Attribute.Required;
     Description: Attribute.Text;
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1171,6 +1180,10 @@ export interface ApiCareerCareer extends Schema.SingleType {
       'oneToMany',
       'api::career-position.career-position'
     >;
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1289,6 +1302,40 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiClientSatisfactionClientSatisfaction
+  extends Schema.SingleType {
+  collectionName: 'client_satisfactions';
+  info: {
+    singularName: 'client-satisfaction';
+    pluralName: 'client-satisfactions';
+    displayName: 'Client satisfaction';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Meta_Title: Attribute.String;
+    Meta_Keyword: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::client-satisfaction.client-satisfaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::client-satisfaction.client-satisfaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCommentComment extends Schema.CollectionType {
   collectionName: 'comments';
   info: {
@@ -1336,6 +1383,10 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Branches: Attribute.Component<'branches.create-branches', true>;
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1420,6 +1471,10 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
       'oneToOne',
       'api::builder.builder'
     >;
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.String;
+    Meta_Keyword: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1476,6 +1531,39 @@ export interface ApiCreateStateCreateState extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::create-state.create-state',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDisclaimerDisclaimer extends Schema.SingleType {
+  collectionName: 'disclaimers';
+  info: {
+    singularName: 'disclaimer';
+    pluralName: 'disclaimers';
+    displayName: 'Disclaimer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::disclaimer.disclaimer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::disclaimer.disclaimer',
       'oneToOne',
       'admin::user'
     > &
@@ -1570,6 +1658,39 @@ export interface ApiMediaCoverageMediaCoverage extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::media-coverage.media-coverage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.SingleType {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'Privacy Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Keyword: Attribute.String;
+    Meta_Description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
       'oneToOne',
       'admin::user'
     > &
@@ -1767,6 +1888,40 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiTermsAndConditionsTermsAndConditions
+  extends Schema.SingleType {
+  collectionName: 'term_and_conditions';
+  info: {
+    singularName: 'terms-and-conditions';
+    pluralName: 'term-and-conditions';
+    displayName: 'Terms and conditions';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Meta_Title: Attribute.String;
+    Meta_Keyword: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::terms-and-conditions.terms-and-conditions',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::terms-and-conditions.terms-and-conditions',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1831,17 +1986,21 @@ declare module '@strapi/types' {
       'api::career-department.career-department': ApiCareerDepartmentCareerDepartment;
       'api::career-position.career-position': ApiCareerPositionCareerPosition;
       'api::category.category': ApiCategoryCategory;
+      'api::client-satisfaction.client-satisfaction': ApiClientSatisfactionClientSatisfaction;
       'api::comment.comment': ApiCommentComment;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::countrie.countrie': ApiCountrieCountrie;
       'api::create-city.create-city': ApiCreateCityCreateCity;
       'api::create-state.create-state': ApiCreateStateCreateState;
+      'api::disclaimer.disclaimer': ApiDisclaimerDisclaimer;
       'api::event.event': ApiEventEvent;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
       'api::property-type.property-type': ApiPropertyTypePropertyType;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'api::team.team': ApiTeamTeam;
+      'api::terms-and-conditions.terms-and-conditions': ApiTermsAndConditionsTermsAndConditions;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
