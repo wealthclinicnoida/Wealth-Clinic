@@ -1704,6 +1704,7 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.SingleType {
     singularName: 'privacy-policy';
     pluralName: 'privacy-policies';
     displayName: 'Privacy Policy';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1712,7 +1713,7 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.SingleType {
     Meta_Title: Attribute.String;
     Meta_Link: Attribute.String;
     Meta_Keyword: Attribute.String;
-    Meta_Description: Attribute.String;
+    Meta_Description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1928,6 +1929,7 @@ export interface ApiTermsAndConditionsTermsAndConditions
     singularName: 'terms-and-conditions';
     pluralName: 'term-and-conditions';
     displayName: 'Terms and conditions';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1936,7 +1938,7 @@ export interface ApiTermsAndConditionsTermsAndConditions
     Meta_Title: Attribute.String;
     Meta_Keyword: Attribute.String;
     Meta_Link: Attribute.String;
-    Meta_Description: Attribute.String;
+    Meta_Description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

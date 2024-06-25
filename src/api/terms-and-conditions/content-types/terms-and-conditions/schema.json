@@ -4,7 +4,8 @@
   "info": {
     "singularName": "terms-and-conditions",
     "pluralName": "term-and-conditions",
-    "displayName": "Terms and conditions"
+    "displayName": "Terms and conditions",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,7 @@
       "type": "string"
     },
     "Meta_Description": {
-      "type": "string"
+      "type": "text"
     }
   }
 }
