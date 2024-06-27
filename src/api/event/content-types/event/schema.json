@@ -42,7 +42,7 @@
       "type": "string"
     },
     "Meta_Keyword": {
-      "type": "text"
+      "type": "string"
     },
     "Meta_Description": {
       "type": "text"
@@ -68,6 +68,9 @@
     "Enter_The_Time": {
       "type": "time",
       "required": true
+    },
+    "Meta_Link": {
+      "type": "string"
     }
   }
 }

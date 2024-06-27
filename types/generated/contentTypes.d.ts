@@ -1590,7 +1590,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     Venue: Attribute.Text;
     Event_Description: Attribute.Blocks & Attribute.Required;
     Meta_Title: Attribute.String;
-    Meta_Keyword: Attribute.Text;
+    Meta_Keyword: Attribute.String;
     Meta_Description: Attribute.Text;
     Schema: Attribute.Text;
     create_cities: Attribute.Relation<
@@ -1609,6 +1609,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'api::countrie.countrie'
     >;
     Enter_The_Time: Attribute.Time & Attribute.Required;
+    Meta_Link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
