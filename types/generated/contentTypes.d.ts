@@ -1056,6 +1056,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'api::comment.comment'
     >;
     Meta_Link: Attribute.String;
+    Slug_Url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1610,6 +1611,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     >;
     Enter_The_Time: Attribute.Time & Attribute.Required;
     Meta_Link: Attribute.String;
+    Slug_Url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1813,6 +1815,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     >;
     Priority: Attribute.Boolean;
     Meta_Link: Attribute.String;
+    Slug_Url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

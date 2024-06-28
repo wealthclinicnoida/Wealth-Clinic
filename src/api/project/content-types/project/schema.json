@@ -152,6 +152,9 @@
     },
     "Meta_Link": {
       "type": "string"
+    },
+    "Slug_Url": {
+      "type": "string"
     }
   }
 }
