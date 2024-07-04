@@ -1056,7 +1056,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'api::comment.comment'
     >;
     Meta_Link: Attribute.String;
-    Slug_Url: Attribute.String;
+    Slug_Url: Attribute.UID<'api::blog.blog', 'Title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1747,7 +1747,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Project_Name: Attribute.String;
+    Project_Name: Attribute.String & Attribute.Required;
     RegNo: Attribute.String;
     Image: Attribute.Media;
     Min_Price: Attribute.Integer;
@@ -1815,7 +1815,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     >;
     Priority: Attribute.Boolean;
     Meta_Link: Attribute.String;
-    Slug_Url: Attribute.String;
+    Slug_Url: Attribute.UID<'api::project.project', 'Project_Name'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

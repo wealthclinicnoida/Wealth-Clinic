@@ -57,7 +57,8 @@
       "type": "string"
     },
     "Slug_Url": {
-      "type": "string"
+      "type": "uid",
+      "targetField": "Title"
     }
   }
 }

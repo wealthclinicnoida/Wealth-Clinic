@@ -14,7 +14,7 @@
   "attributes": {
     "Project_Name": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "RegNo": {
       "type": "string",
@@ -154,7 +154,8 @@
       "type": "string"
     },
     "Slug_Url": {
-      "type": "string"
+      "type": "uid",
+      "targetField": "Project_Name"
     }
   }
 }
