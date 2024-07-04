@@ -1617,7 +1617,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     >;
     Enter_The_Time: Attribute.Time & Attribute.Required;
     Meta_Link: Attribute.String;
-    Slug_Url: Attribute.String;
+    Slug_Url: Attribute.UID<'api::event.event', 'Title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
