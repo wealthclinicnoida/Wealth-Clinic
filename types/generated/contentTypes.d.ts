@@ -1248,12 +1248,18 @@ export interface ApiCareerPositionCareerPosition extends Schema.CollectionType {
   attributes: {
     Position_Name: Attribute.String & Attribute.Required;
     Position_Location: Attribute.String & Attribute.Required;
-    Position_Description: Attribute.Blocks;
     career_department: Attribute.Relation<
       'api::career-position.career-position',
       'oneToOne',
       'api::career-department.career-department'
     >;
+    Position_Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

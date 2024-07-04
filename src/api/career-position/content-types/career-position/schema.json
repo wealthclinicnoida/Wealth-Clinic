@@ -20,14 +20,17 @@
       "type": "string",
       "required": true
     },
-    "Position_Description": {
-      "type": "blocks",
-      "required": false
-    },
     "career_department": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::career-department.career-department"
+    },
+    "Position_Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
