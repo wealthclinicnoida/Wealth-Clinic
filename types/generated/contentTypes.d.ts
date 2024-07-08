@@ -1761,7 +1761,13 @@ export interface ApiProjectProject extends Schema.CollectionType {
     Total_Floors: Attribute.Integer;
     TotalPropertySize: Attribute.Integer;
     Possession_Month_Year: Attribute.Date;
-    Description: Attribute.Blocks;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     Project_Configuration: Attribute.String;
     Meta_Title: Attribute.String;
     Meta_Keyword: Attribute.String;

@@ -48,7 +48,11 @@
       "type": "date"
     },
     "Description": {
-      "type": "blocks"
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     },
     "Project_Configuration": {
       "type": "string"
