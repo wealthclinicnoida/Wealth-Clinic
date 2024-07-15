@@ -1,18 +1,31 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "employee_awards",
   "info": {
     "singularName": "employee-award",
     "pluralName": "employee-awards",
-    "displayName": "Employee Award"
+    "displayName": "employeeAwards"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "Award_Title": {
       "type": "string"
+    },
+    "Award_Date": {
+      "type": "date"
+    },
+    "Award_Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "Meta_Title": {
       "type": "string"
@@ -25,19 +38,6 @@
     },
     "Meta_Keyword": {
       "type": "string"
-    },
-    "Award_Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "Award_Date": {
-      "type": "date"
     }
   }
 }

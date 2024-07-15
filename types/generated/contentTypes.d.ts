@@ -1578,24 +1578,24 @@ export interface ApiDisclaimerDisclaimer extends Schema.SingleType {
   };
 }
 
-export interface ApiEmployeeAwardEmployeeAward extends Schema.SingleType {
+export interface ApiEmployeeAwardEmployeeAward extends Schema.CollectionType {
   collectionName: 'employee_awards';
   info: {
     singularName: 'employee-award';
     pluralName: 'employee-awards';
-    displayName: 'Employee Award';
+    displayName: 'employeeAwards';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Award_Title: Attribute.String;
+    Award_Date: Attribute.Date;
+    Award_Image: Attribute.Media;
     Meta_Title: Attribute.String;
     Meta_Link: Attribute.String;
     Meta_Description: Attribute.Text;
     Meta_Keyword: Attribute.String;
-    Award_Image: Attribute.Media;
-    Award_Date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
