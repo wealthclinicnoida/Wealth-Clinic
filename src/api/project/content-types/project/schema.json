@@ -165,6 +165,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::project-rating.project-rating"
+    },
+    "exclusive": {
+      "type": "boolean",
+      "default": false
+    },
+    "newLaunches": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

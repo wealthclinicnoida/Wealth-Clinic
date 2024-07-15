@@ -1869,6 +1869,8 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToMany',
       'api::project-rating.project-rating'
     >;
+    exclusive: Attribute.Boolean & Attribute.DefaultTo<false>;
+    newLaunches: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
