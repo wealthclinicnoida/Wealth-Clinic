@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_views",
+  "info": {
+    "singularName": "project-view",
+    "pluralName": "project-views",
+    "displayName": "projectView"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ipAddress": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "uid"
+    },
+    "viewCount": {
+      "type": "biginteger",
+      "default": "0"
+    }
+  }
+}

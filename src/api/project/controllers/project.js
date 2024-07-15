@@ -9,7 +9,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::project.project", ({ strapi }) => ({
   async find(ctx) {
     const { data, meta } = await super.find(ctx);
-    console.log("==========hello=========");
+    // console.log("==========hello=========");
 
     const modifiedData = await Promise.all(
       data.map(async (property) => {

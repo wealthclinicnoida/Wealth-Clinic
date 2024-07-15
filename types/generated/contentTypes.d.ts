@@ -1921,6 +1921,38 @@ export interface ApiProjectRatingProjectRating extends Schema.CollectionType {
   };
 }
 
+export interface ApiProjectViewProjectView extends Schema.CollectionType {
+  collectionName: 'project_views';
+  info: {
+    singularName: 'project-view';
+    pluralName: 'project-views';
+    displayName: 'projectView';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ipAddress: Attribute.String;
+    projectId: Attribute.UID;
+    viewCount: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-view.project-view',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-view.project-view',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPropertyTypePropertyType extends Schema.CollectionType {
   collectionName: 'property_types';
   info: {
@@ -2126,6 +2158,7 @@ declare module '@strapi/types' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
       'api::project-rating.project-rating': ApiProjectRatingProjectRating;
+      'api::project-view.project-view': ApiProjectViewProjectView;
       'api::property-type.property-type': ApiPropertyTypePropertyType;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'api::team.team': ApiTeamTeam;
