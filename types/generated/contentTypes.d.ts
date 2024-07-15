@@ -1578,6 +1578,42 @@ export interface ApiDisclaimerDisclaimer extends Schema.SingleType {
   };
 }
 
+export interface ApiEmployeeAwardEmployeeAward extends Schema.SingleType {
+  collectionName: 'employee_awards';
+  info: {
+    singularName: 'employee-award';
+    pluralName: 'employee-awards';
+    displayName: 'Employee Award';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Meta_Title: Attribute.String;
+    Meta_Link: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.String;
+    Award_Image: Attribute.Media;
+    Award_Date: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::employee-award.employee-award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::employee-award.employee-award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -2044,6 +2080,7 @@ declare module '@strapi/types' {
       'api::create-city.create-city': ApiCreateCityCreateCity;
       'api::create-state.create-state': ApiCreateStateCreateState;
       'api::disclaimer.disclaimer': ApiDisclaimerDisclaimer;
+      'api::employee-award.employee-award': ApiEmployeeAwardEmployeeAward;
       'api::event.event': ApiEventEvent;
       'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
