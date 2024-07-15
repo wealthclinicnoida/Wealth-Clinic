@@ -1864,6 +1864,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
     Priority: Attribute.Boolean;
     Meta_Link: Attribute.String;
     Slug_Url: Attribute.UID<'api::project.project', 'Project_Name'>;
+    project_ratings: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::project-rating.project-rating'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1875,6 +1880,38 @@ export interface ApiProjectProject extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectRatingProjectRating extends Schema.CollectionType {
+  collectionName: 'project_ratings';
+  info: {
+    singularName: 'project-rating';
+    pluralName: 'project-ratings';
+    displayName: 'projectRating';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ipAddress: Attribute.String;
+    projectId: Attribute.UID;
+    ratingStar: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-rating.project-rating',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-rating.project-rating',
       'oneToOne',
       'admin::user'
     > &
@@ -2086,6 +2123,7 @@ declare module '@strapi/types' {
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
+      'api::project-rating.project-rating': ApiProjectRatingProjectRating;
       'api::property-type.property-type': ApiPropertyTypePropertyType;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'api::team.team': ApiTeamTeam;

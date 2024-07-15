@@ -160,6 +160,11 @@
     "Slug_Url": {
       "type": "uid",
       "targetField": "Project_Name"
+    },
+    "project_ratings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-rating.project-rating"
     }
   }
 }

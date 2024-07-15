@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_ratings",
+  "info": {
+    "singularName": "project-rating",
+    "pluralName": "project-ratings",
+    "displayName": "projectRating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ipAddress": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "uid"
+    },
+    "ratingStar": {
+      "type": "integer"
+    }
+  }
+}
