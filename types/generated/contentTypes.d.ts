@@ -1895,14 +1895,15 @@ export interface ApiProjectRatingProjectRating extends Schema.CollectionType {
     singularName: 'project-rating';
     pluralName: 'project-ratings';
     displayName: 'projectRating';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     ipAddress: Attribute.String;
-    projectId: Attribute.UID;
     ratingStar: Attribute.Integer;
+    projectId: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

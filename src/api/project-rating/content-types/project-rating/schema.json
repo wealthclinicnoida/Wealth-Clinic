@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project-rating",
     "pluralName": "project-ratings",
-    "displayName": "projectRating"
+    "displayName": "projectRating",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,11 +15,11 @@
     "ipAddress": {
       "type": "string"
     },
-    "projectId": {
-      "type": "uid"
-    },
     "ratingStar": {
       "type": "integer"
+    },
+    "projectId": {
+      "type": "string"
     }
   }
 }
