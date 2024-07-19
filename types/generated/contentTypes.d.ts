@@ -1928,14 +1928,15 @@ export interface ApiProjectViewProjectView extends Schema.CollectionType {
     singularName: 'project-view';
     pluralName: 'project-views';
     displayName: 'projectView';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     ipAddress: Attribute.String;
-    projectId: Attribute.UID;
     viewCount: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    projectId: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
