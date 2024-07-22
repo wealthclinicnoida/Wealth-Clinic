@@ -12,15 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ipAddress": {
-      "type": "string"
-    },
     "viewCount": {
       "type": "biginteger",
       "default": "0"
     },
     "projectId": {
       "type": "biginteger"
+    },
+    "ipAddress": {
+      "type": "json"
     }
   }
 }
