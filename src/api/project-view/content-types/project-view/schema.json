@@ -18,6 +18,9 @@
     },
     "projectId": {
       "type": "biginteger"
+    },
+    "ipAddress": {
+      "type": "json"
     }
   }
 }
