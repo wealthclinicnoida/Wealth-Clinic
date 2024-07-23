@@ -1936,7 +1936,6 @@ export interface ApiProjectViewProjectView extends Schema.CollectionType {
   attributes: {
     viewCount: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
     projectId: Attribute.BigInteger;
-    ipAddress: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
