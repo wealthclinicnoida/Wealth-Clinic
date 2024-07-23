@@ -33,14 +33,15 @@ module.exports = createCoreController(
           if (!ipAddresses.includes(ipAddress)) {
             ipAddresses.push(ipAddress);
           }
+          const uniqueIPCount = ipAddresses.length;
           await strapi.db.query("api::project-view.project-view").update({
             where: { id: existingView.id },
             data: {
               ipAddress: ipAddresses,
+              viewCount: uniqueIPCount,
             },
           });
 
-          const uniqueIPCount = ipAddresses.length;
           return ctx.send({
             message: "View updated successfully.",
             data: { viewCount: uniqueIPCount },
