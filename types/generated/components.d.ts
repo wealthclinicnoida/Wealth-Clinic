@@ -39,6 +39,17 @@ export interface BrochureCreateBrochure extends Schema.Component {
   };
 }
 
+export interface FaqsCreateFaqs extends Schema.Component {
+  collectionName: 'components_faqs_create_faqs';
+  info: {
+    displayName: 'Create-Faqs';
+  };
+  attributes: {
+    Question: Attribute.String;
+    Answer: Attribute.Text;
+  };
+}
+
 export interface FloorPlanCreateFloorPlan extends Schema.Component {
   collectionName: 'components_floor_plan_create_floor_plans';
   info: {
@@ -141,6 +152,7 @@ declare module '@strapi/types' {
       'benefits-perks.create-benefits-and-perks': BenefitsPerksCreateBenefitsAndPerks;
       'branches.create-branches': BranchesCreateBranches;
       'brochure.create-brochure': BrochureCreateBrochure;
+      'faqs.create-faqs': FaqsCreateFaqs;
       'floor-plan.create-floor-plan': FloorPlanCreateFloorPlan;
       'four-pillers.create-pillers': FourPillersCreatePillers;
       'location-map.add-location-map': LocationMapAddLocationMap;

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_faqs_create_faqs",
+  "info": {
+    "displayName": "Create-Faqs"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "text"
+    }
+  }
+}
