@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_faqs_create_faqs",
+  "collectionName": "components_faqs_faqs",
   "info": {
-    "displayName": "Create-Faqs"
+    "displayName": "Faqs"
   },
   "options": {},
   "attributes": {
@@ -9,7 +9,7 @@
       "type": "string"
     },
     "Answer": {
-      "type": "text"
+      "type": "string"
     }
   }
 }

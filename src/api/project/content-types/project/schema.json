@@ -173,6 +173,12 @@
     "newLaunches": {
       "type": "boolean",
       "default": false
+    },
+    "Faqs": {
+      "displayName": "Faqs",
+      "type": "component",
+      "repeatable": true,
+      "component": "faqs.faqs"
     }
   }
 }
