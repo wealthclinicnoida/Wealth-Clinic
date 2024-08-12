@@ -131,9 +131,9 @@
       "relation": "oneToOne",
       "target": "api::category.category"
     },
-    "sub_category": {
+    "sub_categories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::sub-category.sub-category"
     },
     "country": {

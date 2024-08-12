@@ -1841,9 +1841,9 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::category.category'
     >;
-    sub_category: Attribute.Relation<
+    sub_categories: Attribute.Relation<
       'api::project.project',
-      'oneToOne',
+      'oneToMany',
       'api::sub-category.sub-category'
     >;
     country: Attribute.Relation<
