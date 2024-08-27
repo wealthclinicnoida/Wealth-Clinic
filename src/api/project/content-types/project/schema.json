@@ -179,6 +179,9 @@
       "type": "component",
       "repeatable": true,
       "component": "faqs.faqs"
+    },
+    "projectSequence": {
+      "type": "decimal"
     }
   }
 }

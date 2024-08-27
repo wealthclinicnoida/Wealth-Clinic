@@ -1872,6 +1872,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     exclusive: Attribute.Boolean & Attribute.DefaultTo<false>;
     newLaunches: Attribute.Boolean & Attribute.DefaultTo<false>;
     Faqs: Attribute.Component<'faqs.faqs', true>;
+    projectSequence: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
