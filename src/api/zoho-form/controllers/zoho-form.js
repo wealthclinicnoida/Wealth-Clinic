@@ -19,7 +19,9 @@ module.exports = {
     };
     try {
       const zohoFormParams = getZohoParams(ctx);
+
       const response = await axios.post(ZOHO_API_URL, zohoFormParams, HEADER);
+      console.log("==========", response.data, "------>", zohoFormParams);
       ctx.send(response.data);
     } catch (error) {
       console.error("Error submitting zoho form:", error);
