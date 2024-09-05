@@ -31,13 +31,14 @@ module.exports = {
 };
 
 const getZohoParams = (ctx) => {
+  const OWNER_ID = 3664837000038157001;
   const {
     Contact_ID,
     Last_Name,
     Email,
     Mobile,
     Query,
-    Location,
+    Locationn,
     Budget,
     Lead_Source1,
     Lead_Type, //whatsapp/ PhoneCall Type
@@ -53,7 +54,7 @@ const getZohoParams = (ctx) => {
     Email,
     Mobile,
     Query,
-    Location,
+    Locationn,
     Budget,
     Lead_Source1,
     Lead_Type, //whatsapp/ PhoneCall Type
@@ -61,6 +62,6 @@ const getZohoParams = (ctx) => {
     Lead_Priority,
     Stage,
     Temp_Field_3, // form Name
-    // Owner_testing,
+    Owner_testing: OWNER_ID,
   };
 };
