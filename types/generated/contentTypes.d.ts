@@ -1705,6 +1705,37 @@ export interface ApiHappyCustomerHappyCustomer extends Schema.SingleType {
   };
 }
 
+export interface ApiHomePageHomePage extends Schema.CollectionType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'home-page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    templates: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMediaCoverageMediaCoverage extends Schema.CollectionType {
   collectionName: 'media_coverages';
   info: {
@@ -2158,6 +2189,7 @@ declare module '@strapi/types' {
       'api::employee-award.employee-award': ApiEmployeeAwardEmployeeAward;
       'api::event.event': ApiEventEvent;
       'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
