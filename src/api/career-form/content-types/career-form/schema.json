@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_forms",
+  "info": {
+    "singularName": "career-form",
+    "pluralName": "career-forms",
+    "displayName": "careerForm",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "integer"
+    },
+    "location": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "selectPackage": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

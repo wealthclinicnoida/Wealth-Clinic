@@ -1234,6 +1234,45 @@ export interface ApiCareerDepartmentCareerDepartment
   };
 }
 
+export interface ApiCareerFormCareerForm extends Schema.CollectionType {
+  collectionName: 'career_forms';
+  info: {
+    singularName: 'career-form';
+    pluralName: 'career-forms';
+    displayName: 'careerForm';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    phone: Attribute.Integer;
+    location: Attribute.String;
+    email: Attribute.Email;
+    selectPackage: Attribute.String;
+    experience: Attribute.String;
+    jobTitle: Attribute.String;
+    file: Attribute.Media;
+    photo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::career-form.career-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::career-form.career-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCareerPositionCareerPosition extends Schema.CollectionType {
   collectionName: 'career_positions';
   info: {
@@ -2177,6 +2216,7 @@ declare module '@strapi/types' {
       'api::builder.builder': ApiBuilderBuilder;
       'api::career.career': ApiCareerCareer;
       'api::career-department.career-department': ApiCareerDepartmentCareerDepartment;
+      'api::career-form.career-form': ApiCareerFormCareerForm;
       'api::career-position.career-position': ApiCareerPositionCareerPosition;
       'api::category.category': ApiCategoryCategory;
       'api::client-satisfaction.client-satisfaction': ApiClientSatisfactionClientSatisfaction;
