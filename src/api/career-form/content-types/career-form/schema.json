@@ -49,6 +49,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "preferLocation": {
+      "type": "string"
     }
   }
 }

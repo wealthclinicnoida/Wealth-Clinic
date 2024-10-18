@@ -1255,6 +1255,7 @@ export interface ApiCareerFormCareerForm extends Schema.CollectionType {
     jobTitle: Attribute.String;
     file: Attribute.Media;
     photo: Attribute.Media;
+    preferLocation: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
