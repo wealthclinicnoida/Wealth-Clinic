@@ -1247,7 +1247,7 @@ export interface ApiCareerFormCareerForm extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    phone: Attribute.Integer;
+    phone: Attribute.BigInteger;
     location: Attribute.String;
     email: Attribute.Email;
     selectPackage: Attribute.String;
