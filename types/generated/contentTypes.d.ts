@@ -1250,12 +1250,13 @@ export interface ApiCareerFormCareerForm extends Schema.CollectionType {
     phone: Attribute.BigInteger;
     location: Attribute.String;
     email: Attribute.Email;
-    selectPackage: Attribute.String;
+    expectedPackage: Attribute.String;
     experience: Attribute.String;
     jobTitle: Attribute.String;
     file: Attribute.Media;
     photo: Attribute.Media;
     preferLocation: Attribute.String;
+    currentPackage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

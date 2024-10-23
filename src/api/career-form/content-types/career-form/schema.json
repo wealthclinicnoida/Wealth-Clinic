@@ -24,7 +24,7 @@
     "email": {
       "type": "email"
     },
-    "selectPackage": {
+    "expectedPackage": {
       "type": "string"
     },
     "experience": {
@@ -51,6 +51,9 @@
       ]
     },
     "preferLocation": {
+      "type": "string"
+    },
+    "currentPackage": {
       "type": "string"
     }
   }
