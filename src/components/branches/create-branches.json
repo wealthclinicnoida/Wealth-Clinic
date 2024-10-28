@@ -31,6 +31,9 @@
     },
     "main_heading": {
       "type": "string"
+    },
+    "locationLink": {
+      "type": "text"
     }
   }
 }

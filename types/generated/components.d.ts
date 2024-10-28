@@ -25,6 +25,7 @@ export interface BranchesCreateBranches extends Schema.Component {
     Address: Attribute.Text;
     Image: Attribute.Media & Attribute.Required;
     main_heading: Attribute.String;
+    locationLink: Attribute.Text;
   };
 }
 
