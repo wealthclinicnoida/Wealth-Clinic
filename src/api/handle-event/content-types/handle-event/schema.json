@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "handle_events",
+  "info": {
+    "singularName": "handle-event",
+    "pluralName": "handle-events",
+    "displayName": "handleEvent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eventStatus": {
+      "type": "boolean"
+    },
+    "eventFormName": {
+      "type": "string"
+    },
+    "patchCardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "eventPopUpImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "eventFormLogoImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

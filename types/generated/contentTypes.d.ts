@@ -1713,6 +1713,41 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiHandleEventHandleEvent extends Schema.CollectionType {
+  collectionName: 'handle_events';
+  info: {
+    singularName: 'handle-event';
+    pluralName: 'handle-events';
+    displayName: 'handleEvent';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    eventStatus: Attribute.Boolean;
+    eventFormName: Attribute.String;
+    patchCardImage: Attribute.Media;
+    eventPopUpImg: Attribute.Media;
+    eventFormLogoImg: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::handle-event.handle-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::handle-event.handle-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHappyCustomerHappyCustomer extends Schema.SingleType {
   collectionName: 'happy_customers';
   info: {
@@ -2230,6 +2265,7 @@ declare module '@strapi/types' {
       'api::disclaimer.disclaimer': ApiDisclaimerDisclaimer;
       'api::employee-award.employee-award': ApiEmployeeAwardEmployeeAward;
       'api::event.event': ApiEventEvent;
+      'api::handle-event.handle-event': ApiHandleEventHandleEvent;
       'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
