@@ -50,13 +50,14 @@ const getZohoParams = (ctx) => {
     Stage,
     Temp_Field_3, // form Name
     // Owner_testing,
+    Property_Type,
   } = ctx.request.body;
 
   // const newUrl = `
   //   https://www.zohoapis.com/crm/v2/functions/property_wala/actions/execute?auth_type=apikey&zapikey=1003.1e4337563bdfd4d5d09450bda8cfcf36.6c69bb448b86aa64654ef89ca2018684&Contact_ID=${Contact_ID}&Last_Name=${Last_Name}&Mobile=${Mobile}&Query=${Query}&Locationn=${Locationn}&Budget=${Budget}&Lead_Source1=${Lead_Source1}&Lead_Type=${Lead_Type}&Rating=${Rating}&Lead_Priority=${Lead_Priority}&Stage=${Stage}&Temp_Field_3=${Temp_Field_3}&Owner testing=${OWNER_ID}
   // `;
 
-  const newUrl = `https://www.zohoapis.com/crm/v2/functions/property_wala/actions/execute?auth_type=apikey&zapikey=1003.1e4337563bdfd4d5d09450bda8cfcf36.6c69bb448b86aa64654ef89ca2018684&Contact_ID=${Contact_ID}&Last_Name=${Last_Name}&Email=${Email}&Mobile=${Mobile}&Query=${Query}&Locationn=${Locationn}&Budget=${Budget}&Lead_Source1=${Lead_Source1}&Lead_Type=${Lead_Type}&Rating=${Rating}&Lead_Priority=${Lead_Priority}&Stage=${Stage}&Temp_Field_3=${Temp_Field_3}&Owner=3664837000038157001`;
+  const newUrl = `https://www.zohoapis.com/crm/v2/functions/property_wala/actions/execute?auth_type=apikey&zapikey=1003.1e4337563bdfd4d5d09450bda8cfcf36.6c69bb448b86aa64654ef89ca2018684&Contact_ID=${Contact_ID}&Last_Name=${Last_Name}&Email=${Email}&Mobile=${Mobile}&Query=${Query}&Locationn=${Locationn}&Budget=${Budget}&Lead_Source1=${Lead_Source1}&Lead_Type=${Lead_Type}&Rating=${Rating}&Lead_Priority=${Lead_Priority}&Stage=${Stage}&Temp_Field_3=${Temp_Field_3}&Property_Type=${Property_Type}&Owner=3664837000038157001`;
 
   const newObj = {
     Contact_ID,
