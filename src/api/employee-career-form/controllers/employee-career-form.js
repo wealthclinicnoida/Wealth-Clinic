@@ -15,7 +15,8 @@ module.exports = {
         method: "POST",
         body: formData,
       });
-      ctx.send("shi jge kaam hoo rha haii");
+
+      ctx.send(response.status);
     } catch (error) {
       console.error(
         "Error submitting form:",
