@@ -75,6 +75,11 @@
     "Slug_Url": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "Location_Map": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location-map.add-location-map"
     }
   }
 }
