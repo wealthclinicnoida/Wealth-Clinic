@@ -1833,6 +1833,7 @@ export interface ApiMediaCoverageMediaCoverage extends Schema.CollectionType {
         'plugin::multi-select.multi-select',
         ['Press Release', 'News']
       >;
+    Date: Attribute.DateTime;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
