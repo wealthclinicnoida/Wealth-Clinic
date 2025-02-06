@@ -68,6 +68,11 @@
     "Enter_The_Time": {
       "type": "time",
       "required": true
+    },
+     "Location_Map": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location-map.add-location-map"
     }
   }
 }
