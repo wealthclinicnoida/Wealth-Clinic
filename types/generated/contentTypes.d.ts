@@ -1523,6 +1523,7 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
     Meta_Link: Attribute.String;
     Meta_Description: Attribute.String;
     Meta_Keyword: Attribute.String;
+    City_Image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

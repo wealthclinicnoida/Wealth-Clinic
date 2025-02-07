@@ -36,6 +36,16 @@
     },
     "Meta_Keyword": {
       "type": "string"
+    },
+    "City_Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
