@@ -1983,6 +1983,8 @@ export interface ApiProjectProject extends Schema.CollectionType {
     newLaunches: Attribute.Boolean & Attribute.DefaultTo<false>;
     Faqs: Attribute.Component<'faqs.faqs', true>;
     projectSequence: Attribute.Decimal;
+    min_Area: Attribute.Integer;
+    max_Area: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

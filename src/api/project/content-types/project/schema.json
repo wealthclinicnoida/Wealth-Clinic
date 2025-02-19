@@ -182,6 +182,14 @@
     },
     "projectSequence": {
       "type": "decimal"
+    },
+    "min_Area": {
+      "type": "integer",
+      "required":false
+    },
+    "max_Area": {
+      "type": "integer",
+      "required":false
     }
   }
 }
