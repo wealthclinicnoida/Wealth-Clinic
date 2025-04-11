@@ -59,6 +59,19 @@
     "Slug_Url": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "WrittenBy": {
+      "type": "text"
+    },
+    "BlogImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

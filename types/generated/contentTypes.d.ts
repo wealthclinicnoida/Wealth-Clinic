@@ -1057,6 +1057,8 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     >;
     Meta_Link: Attribute.String;
     Slug_Url: Attribute.UID<'api::blog.blog', 'Title'>;
+    WrittenBy: Attribute.Text;
+    BlogImg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
