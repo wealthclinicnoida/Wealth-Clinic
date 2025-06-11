@@ -1,36 +1,55 @@
-'use strict';
+"use strict";
 
-const { createCoreController } = require('@strapi/strapi').factories;
+/**
+ * project controller
+ */
 
-module.exports = createCoreController("api::project.project", ({ strapi }) => ({
-  async find(ctx) {
-    const { Project_Name } = ctx.query;
+const { createCoreController } = require("@strapi/strapi").factories;
+module.exports = createCoreController("api::project.project");
 
-    const filters = {};
+// module.exports = createCoreController("api::project.project", ({ strapi }) => ({
+//   async find(ctx) {
+//     const { data, meta } = await super.find(ctx);
+//     // console.log("==========hello=========");
 
-    if (Project_Name) {
-      filters.$or = [
-        { Project_Name: { $containsi: Project_Name } },
-        { category: { $containsi: Project_Name } },
-        { sub_categories: { $containsi: Project_Name } },
-        { Min_Price: { $containsi: Project_Name } }, // Budget must be string or converted
-      ];
-    }
+//     const modifiedData = await Promise.all(
+//       data.map(async (property) => {
+//         const ratings = property.attributes.project_ratings.data;
 
-    // Inject filters into query with default populate & sort
-    ctx.query = {
-      ...ctx.query,
-      filters,
-      populate: '*',
-      sort: 'projectSequence:asc',
-    };
+//         if (ratings.length > 0) {
+//           const totalRating = ratings.reduce(
+//             (sum, review) => sum + review.attributes.ratingStar,
+//             0
+//           );
+//           const averageRating = totalRating / ratings.length;
+//           property.attributes.totalRating = averageRating;
+//         } else {
+//           property.attributes.totalRating = 0;
+//         }
 
-    const { data, meta } = await super.find(ctx);
-    return { data, meta };
-  },
+//         return property;
+//       })
+//     );
 
-  async findOne(ctx) {
-    const { data } = await super.findOne(ctx);
-    return { data };
-  },
-}));
+//     return { data: modifiedData, meta };
+//   },
+
+//   async findOne(ctx) {
+//     const { data } = await super.findOne(ctx);
+
+//     const ratings = data.attributes.project_ratings.data;
+
+//     if (ratings.length > 0) {
+//       const totalRating = ratings.reduce(
+//         (sum, review) => sum + review.attributes.ratingStar,
+//         0
+//       );
+//       const averageRating = totalRating / ratings.length;
+//       data.attributes.totalRating = averageRating;
+//     } else {
+//       data.attributes.totalRating = 0;
+//     }
+
+//     return { data };
+//   },
+// }));
