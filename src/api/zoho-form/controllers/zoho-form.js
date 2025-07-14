@@ -3,7 +3,7 @@ const axios = require("axios");
 module.exports = {
   async postZohoForm(ctx) {
     const ZOHO_API_URL =
-      "https://www.zohoapis.com/crm/v2/functions/property_wala/actions/execute?";
+      "https://www.zohoapis.com/crm/v2/functions/property_wal/actions/execute?";
     const API_KEY =
       "1003.1e4337563bdfd4d5d09450bda8cfcf36.6c69bb448b86aa64654ef89ca2018684";
     const OWNER_ID = 3664837000038157001;
