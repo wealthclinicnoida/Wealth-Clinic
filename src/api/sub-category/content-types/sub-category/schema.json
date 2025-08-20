@@ -22,7 +22,9 @@
       "target": "api::category.category"
     },
     "image": {
-      "type": "image",
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
     }
   }
 }
