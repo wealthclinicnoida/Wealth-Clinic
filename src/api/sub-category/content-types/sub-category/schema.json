@@ -21,10 +21,9 @@
       "relation": "oneToOne",
       "target": "api::category.category"
     },
-    "image": {
+    "Image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
     }
   }
 }
