@@ -36,6 +36,11 @@
       "type": "integer",
       "required": false
     },
+     "Configuration_Price": {
+      "type": "component",
+      "repeatable": true,
+      "component": "configuration-price.configuration-price"
+    },
     "Total_Floors": {
       "type": "integer",
       "required": false
