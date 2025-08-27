@@ -23,7 +23,7 @@
     },
     "Image": {
       "type": "media",
-      "multiple": false,
+      "multiple": false
     }
   }
 }
