@@ -39,7 +39,7 @@
      "Configuration_Price": {
       "type": "component",
       "repeatable": true,
-      "component": "configuration-price.configuration-price"
+      "component": "Configuration-price.configuration-price"
     },
     "Total_Floors": {
       "type": "integer",
