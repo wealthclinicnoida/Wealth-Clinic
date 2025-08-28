@@ -3,7 +3,7 @@
   "collectionName": "reviews",
   "info": {
     "singularName": "review",
-    "pluralName": "reviews",
+    "pluralName": "user-reviews",
     "displayName": "Review"
   },
   "options": {
@@ -31,3 +31,4 @@
     }
   }
 }
+
