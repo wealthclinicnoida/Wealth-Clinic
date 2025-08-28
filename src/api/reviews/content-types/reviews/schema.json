@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "reviews",
   "info": {
-    "singularName": "reviews",
+    "singularName": "review",
     "pluralName": "reviews",
     "displayName": "Review"
   },
@@ -31,3 +31,4 @@
     }
   }
 }
+
