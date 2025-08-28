@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "user_reviews",
+  "collectionName": "reviews",
   "info": {
-    "singularName": "user-review",
-    "pluralName": "user-reviews",
-    "displayName": "User Review"
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review"
   },
   "options": {
     "draftAndPublish": true
