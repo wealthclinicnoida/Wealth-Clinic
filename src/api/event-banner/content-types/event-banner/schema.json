@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event-banners",
+  "info": {
+    "singularName": "event-banner",
+    "pluralName": "event-banners",
+    "displayName": "Event Banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "device": {
+      "type": "string",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}
