@@ -14,5 +14,14 @@ module.exports = (config, { strapi }) => {
 
     // Continue to the next middleware
     await next();
+
+    
+    // ✅ Cache-Control only for uploads (media files)
+    if (ctx.request.url.startsWith("/uploads/")) {
+      ctx.set("Cache-Control", "public, max-age=31536000, immutable"); 
+      // Cache for 1 year
+    }
+
+    
   };
 };
