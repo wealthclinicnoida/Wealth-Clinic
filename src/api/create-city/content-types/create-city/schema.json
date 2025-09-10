@@ -29,7 +29,7 @@
       "type": "string"
     },
      "desc": {
-      "type": "string"
+      "type": "text"
     },
     "Meta_Link": {
       "type": "string"
