@@ -46,6 +46,13 @@
       ],
       "type": "media",
       "multiple": true
+    },
+    
+    "Faqs": {
+      "displayName": "Faqs",
+      "type": "component",
+      "repeatable": true,
+      "component": "faqs.faqs"
     }
   }
 }
