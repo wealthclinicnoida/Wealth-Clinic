@@ -28,6 +28,9 @@
     "Meta_Title": {
       "type": "string"
     },
+     "desc": {
+      "type": "string"
+    },
     "Meta_Link": {
       "type": "string"
     },
