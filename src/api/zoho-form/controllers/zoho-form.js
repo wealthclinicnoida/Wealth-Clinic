@@ -7,7 +7,6 @@ module.exports = {
     const API_KEY =
       "1003.1e4337563bdfd4d5d09450bda8cfcf36.6c69bb448b86aa64654ef89ca2018684";
     if(
-    const OWNER_ID = 3664837000038157001;
 
     const HEADER = {
       headers: {
