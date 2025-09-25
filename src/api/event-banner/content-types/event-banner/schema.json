@@ -16,8 +16,9 @@
     },
     "file": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false
     }
   }
 }
+
