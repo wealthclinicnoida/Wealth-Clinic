@@ -91,6 +91,10 @@
       "repeatable": false,
       "component": "floor-plan.create-floor-plan"
     },
+   "External_Link": {
+  "type": "string",
+  "required": false
+},
     "Brochures": {
       "type": "component",
       "repeatable": true,
