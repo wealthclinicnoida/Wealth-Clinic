@@ -50,7 +50,16 @@
       "type": "media",
       "multiple": true
     },
-    
+      "City_background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
     "Faqs": {
       "displayName": "Faqs",
       "type": "component",
