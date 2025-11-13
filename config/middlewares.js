@@ -2,20 +2,50 @@ module.exports = [
   "strapi::logger",
   "strapi::errors",
   "strapi::security",
-  "strapi::cors",
+  {
+    name: "strapi::cors",
+    config: {
+      enabled: true,
+      origin: ["*"], // ✅ Allow all origins
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      credentials: true,
+    },
+  },
   "strapi::poweredBy",
   "strapi::query",
   "strapi::body",
   "strapi::session",
   "strapi::favicon",
-   {
-    name: 'strapi::public',
+  {
+    name: "strapi::public",
     config: {
       maxAge: 31536000, // 1 year
       immutable: true,
     },
   },
 ];
+
+
+
+// module.exports = [
+//   "strapi::logger",
+//   "strapi::errors",
+//   "strapi::security",
+//   "strapi::cors",
+//   "strapi::poweredBy",
+//   "strapi::query",
+//   "strapi::body",
+//   "strapi::session",
+//   "strapi::favicon",
+//    {
+//     name: 'strapi::public',
+//     config: {
+//       maxAge: 31536000, // 1 year
+//       immutable: true,
+//     },
+//   },
+// ];
 
 // module.exports = [
 //   "strapi::logger",
