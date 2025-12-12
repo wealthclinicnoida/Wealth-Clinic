@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_template_items",
+  "info": {
+    "displayName": "Template Item",
+    "description": "Single template item with image and link"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false,
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
