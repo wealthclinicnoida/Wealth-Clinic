@@ -8,7 +8,7 @@
   "attributes": {
     "image": {
       "type": "media",
-      "allowedTypes": ["images"],
+      "allowedTypes": ["images", "videos"],
       "multiple": false,
       "required": true
     },
@@ -18,3 +18,4 @@
     }
   }
 }
+
