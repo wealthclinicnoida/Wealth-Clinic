@@ -24,6 +24,14 @@
         "images"
       ]
     },
+     "Cover_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "Start_Date": {
       "type": "date",
       "required": true
