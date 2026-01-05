@@ -20,7 +20,7 @@
       "required": false
     },
     "comment": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "rating": {
@@ -35,6 +35,7 @@
     }
   }
 }
+
 
 
 
