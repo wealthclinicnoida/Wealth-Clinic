@@ -19,7 +19,7 @@
       "multiple": false,
       "required": false
     },
-    "link": {
+    "comment": {
       "type": "string",
       "required": true
     },
@@ -28,6 +28,10 @@
       "required": true,
       "min": 0,
       "max": 5
+    },
+     "link": {
+      "type": "string",
+      "required": true,
     }
   }
 }
