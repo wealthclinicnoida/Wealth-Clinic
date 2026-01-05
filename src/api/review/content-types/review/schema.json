@@ -19,7 +19,7 @@
       "multiple": false,
       "required": false
     },
-    "comment": {
+    "link": {
       "type": "string",
       "required": true
     },
@@ -31,3 +31,4 @@
     }
   }
 }
+
