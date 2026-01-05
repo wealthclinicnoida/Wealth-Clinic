@@ -31,9 +31,10 @@
     },
      "link": {
       "type": "string",
-      "required": true,
-    },
+      "required": true
+    }
   }
 }
+
 
 
