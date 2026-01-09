@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_sections_template_items",
+  "collectionName": "components_sections_test_template_items",
   "info": {
-    "displayName": "Template Item",
+    "displayName": "Test Template Item",
     "description": "Single template item with image and link"
   },
   "options": {},
@@ -22,4 +22,5 @@
     }
   }
 }
+
 
