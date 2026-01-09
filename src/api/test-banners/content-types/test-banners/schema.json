@@ -4,7 +4,7 @@
   "info": {
     "singularName": "test-banner",
     "pluralName": "test-banners",
-    "displayName": "test-banners"
+    "displayName": "test-banner"
   },
   "options": {
     "draftAndPublish": true
@@ -17,3 +17,4 @@
     }
   }
 }
+
