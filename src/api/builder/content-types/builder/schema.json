@@ -46,6 +46,10 @@
     "Builder_Disclaimer": {
       "type": "text"
     },
+    "Priority": {
+      "type": "boolean",
+      "default":false
+    },
     "countries": {
       "type": "relation",
       "relation": "oneToMany",
