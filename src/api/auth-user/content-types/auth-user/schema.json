@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_users",
+  "info": {
+    "singularName": "auth-user",
+    "pluralName": "auth-users",
+    "displayName": "Auth User",
+    "description": "Auth User with phone and email OTP verification"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": false,
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+
+    "phoneOTP": {
+      "type": "string",
+      "private": true
+    },
+    "phoneOtpExpiresAt": {
+      "type": "datetime"
+    },
+    "isPhoneVerified": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "emailOTP": {
+      "type": "string",
+      "private": true
+    },
+    "emailOtpExpiresAt": {
+      "type": "datetime"
+    },
+    "isEmailVerified": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::create-city.create-city",
+      "inversedBy": "auth-user"
+    },
+
+    "builder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::builder.builder",
+      "inversedBy": "auth-user"
+    }
+  }
+}
