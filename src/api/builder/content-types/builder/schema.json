@@ -40,9 +40,8 @@
     "Zip_Code": {
       "type": "string"
     },
-    "priority-number": {
+    "priority_number": {
       "type": "integer",
-      "default":false
     },
     "Phone": {
       "type": "biginteger"
