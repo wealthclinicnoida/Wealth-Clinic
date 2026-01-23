@@ -41,7 +41,7 @@
       "type": "string"
     },
     "priority-number": {
-      "type": "integer"
+      "type": "integer",
       "default":false
     },
     "Phone": {
