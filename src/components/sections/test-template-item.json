@@ -12,6 +12,12 @@
       "multiple": false,
       "required": true
     },
+     "mobile-image": {
+      "type": "media",
+      "allowedTypes": ["images", "videos"],
+      "multiple": false,
+      "required": true
+    },
     "link": {
       "type": "string",
       "required": false
@@ -22,5 +28,6 @@
     }
   }
 }
+
 
 
