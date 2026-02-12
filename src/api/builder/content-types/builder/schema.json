@@ -24,9 +24,7 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "Builder_Experience": {
       "type": "integer"
@@ -41,7 +39,7 @@
       "type": "string"
     },
     "priority_number": {
-      "type": "integer",
+      "type": "integer"
     },
     "Phone": {
       "type": "biginteger"
@@ -51,7 +49,7 @@
     },
     "Priority": {
       "type": "boolean",
-      "default":false
+      "default": false
     },
     "countries": {
       "type": "relation",
