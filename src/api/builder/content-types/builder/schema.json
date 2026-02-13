@@ -76,6 +76,6 @@
      "Slug_Url": {
       "type": "uid",
       "targetField": "Title"
-    },
+    }
   }
 }
