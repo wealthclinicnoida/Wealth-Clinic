@@ -72,6 +72,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::create-city.create-city"
-    }
+    },
+     "Slug_Url": {
+      "type": "uid",
+      "targetField": "Title"
+    },
   }
 }
