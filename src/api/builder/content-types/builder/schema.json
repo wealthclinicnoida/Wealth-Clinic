@@ -47,6 +47,13 @@
     "Builder_Disclaimer": {
       "type": "text"
     },
+      "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
     "Priority": {
       "type": "boolean",
       "default": false
