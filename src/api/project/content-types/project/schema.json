@@ -205,6 +205,6 @@
       "type": "component",
       "repeatable": true,
       "component": "updates.updates"
-    },
+    }
   }
 }
