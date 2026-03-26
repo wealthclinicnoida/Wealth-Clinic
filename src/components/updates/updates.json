@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_updates_updates",
+  "info": {
+    "displayName": "Updates"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "media"
+    },
+    "name": {
+      "type": "text"
+    }
+  }
+}
