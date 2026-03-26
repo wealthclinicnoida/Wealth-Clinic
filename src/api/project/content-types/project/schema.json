@@ -199,6 +199,12 @@
     "max_Area": {
       "type": "integer",
       "required":false
-    }
+    },
+    "updates": {
+      "displayName": "Updates",
+      "type": "component",
+      "repeatable": true,
+      "component": "updates.updates"
+    },
   }
 }
