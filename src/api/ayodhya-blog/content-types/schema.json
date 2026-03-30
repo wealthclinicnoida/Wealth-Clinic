@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ayodhya-blogs",
+  "info": {
+    "singularName": "ayodhya-blog",
+    "pluralName": "ayodhya-blogs",
+    "displayName": "Blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Pubish_Date": {
+      "type": "date",
+      "required": true
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Meta_Keyword": {
+      "type": "text"
+    },
+     "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Slug_Url": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "BlogImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+     "Faqs": {
+      "displayName": "Faqs",
+      "type": "component",
+      "repeatable": true,
+      "component": "faqs.faqs"
+    }
+  }
+}
