@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "ayodhya-blog",
+  "collectionName": "ayodhya-blogs",
   "info": {
     "singularName": "ayodhya-blog",
     "pluralName": "ayodhya-blogs",
