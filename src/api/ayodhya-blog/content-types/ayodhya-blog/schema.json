@@ -38,7 +38,7 @@
       "type": "text"
     },
      "Description": {
-      "type": "richtext",
+      "type": "richtext"
      
     },
     "Meta_Link": {
