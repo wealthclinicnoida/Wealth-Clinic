@@ -208,6 +208,9 @@
     },
     "teaser": {
       "type": "media"
+    },
+    "listen": {
+      "type": "text"
     }
   }
 }
