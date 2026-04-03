@@ -218,6 +218,7 @@
       "component": "sections.test-template-item"
   },
     "logo":{
-            "type": "media"
+     "type": "media"
   }
+}
 }
