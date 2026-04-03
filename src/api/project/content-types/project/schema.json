@@ -211,6 +211,13 @@
     },
     "listen": {
       "type": "text"
-    }
+    },
+    "highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.test-template-item"
+  },
+    "logo":{
+            "type": "media"
   }
 }
