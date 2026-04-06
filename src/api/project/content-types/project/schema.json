@@ -219,6 +219,9 @@
   },
     "logo":{
      "type": "media"
+  },
+        "sitemap":{
+     "type": "media"
   }
 }
 }
