@@ -20,7 +20,7 @@
         "images"
       ],
       "type": "media",
-      "multiple": false,
+      "multiple": false
     },
     "YouTube_link": {
       "type": "text"
