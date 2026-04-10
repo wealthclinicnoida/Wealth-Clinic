@@ -21,7 +21,6 @@
       ],
       "type": "media",
       "multiple": false,
-      "required": true
     },
     "YouTube_link": {
       "type": "text"
