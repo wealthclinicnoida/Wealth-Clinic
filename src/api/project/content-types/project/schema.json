@@ -223,5 +223,9 @@
         "sitemap":{
      "type": "media"
   }
+    ,
+        "voice":{
+     "type": "media"
+  }
 }
 }
