@@ -36,6 +36,7 @@ const getZohoParams = async (ctx) => {
     Stage,
     Temp_Field_3,
     Property_Type,
+    Description
   } = ctx.request.body;
 
   let newUrl = "";
