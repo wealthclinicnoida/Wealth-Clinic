@@ -33,8 +33,18 @@
     },
     "wishlist": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "wishlist-item.wishlist"
+    },
+     "lastSearched": {
+      "type": "component",
+      "repeatable": true,
+      "component": "last-searched.searched"
+    },
+     "lastViewed": {
+      "type": "component",
+      "repeatable": true,
+      "component": "last-viewed.viewed"
     }
   }
 }
