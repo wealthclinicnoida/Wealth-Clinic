@@ -100,7 +100,7 @@ module.exports = {
   },
 
   async addToWishlist(ctx) {
-    const { sessionId, wishlistName, propertyId, propertyName, price } = ctx.request.body;
+    const { sessionId, propertyId, propertyName, price } = ctx.request.body;
 
     let session = await strapi.entityService.findMany(
       'api::session.session',
@@ -111,18 +111,14 @@ module.exports = {
 
     session = session[0];
 
-    const wishlists = session.wishlist || [];
-    const wishlist = wishlists.find(w => w.name === wishlistName);
 
-    if (!wishlist) return ctx.badRequest('Wishlist not found');
-
-    if (wishlist.items?.find(i => i.propertyId === propertyId)) {
+    if (wishlist?.find(i => i.propertyId === propertyId)) {
       return ctx.send({ message: 'Already exists' });
     }
 
-    wishlist.items.push({ propertyId, propertyName, price });
+    wishlist.push({ propertyId, propertyName, price });
 
-    if (wishlist.items.length > 50) wishlist.items.shift();
+    if (wishlist.length > 50) wishlist.shift();
 
     await strapi.entityService.update('api::session.session', session.id, {
       data: { wishlist: wishlists },
