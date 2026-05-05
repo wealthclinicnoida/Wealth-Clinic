@@ -11,8 +11,10 @@
   },
   "attributes": {
     "sessionId": {
-      "type": "string"
-    },
+  "type": "string",
+  "required": true,
+  "unique": true
+},
       "items": {
       "type": "component",
       "repeatable": true,
