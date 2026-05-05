@@ -14,7 +14,10 @@
       "type": "string"
     },
     "items": {
-      "type": "json"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wishlist-item.wishlist-item",
+      "mappedBy": "wishlist"
     }
   }
 }
