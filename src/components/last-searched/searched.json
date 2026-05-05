@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_last_searched",
+  "info": {
+    "displayName": "Last Searched"
+  },
+  "attributes": {
+    "searchQuery": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "datetime"
+    }
+  }
+}
