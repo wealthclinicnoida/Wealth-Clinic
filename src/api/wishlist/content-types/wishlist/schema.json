@@ -18,7 +18,7 @@
       "items": {
       "type": "component",
       "repeatable": true,
-      "component": "wishlist.wishlist"
+      "component": "wishlist-item.wishlist"
     }
   }
 }
