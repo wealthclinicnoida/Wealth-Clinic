@@ -13,11 +13,10 @@
     "sessionId": {
       "type": "string"
     },
-    "items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::wishlist-item.wishlist-item",
-      "mappedBy": "wishlist"
+      "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "wishlist.item"
     }
   }
 }
