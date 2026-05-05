@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sessions",
+  "info": {
+    "singularName": "session",
+    "pluralName": "sessions",
+    "displayName": "Session"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "sessionId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "playerId": {
+      "type": "string"
+    },
+    "lastActiveAt": {
+      "type": "datetime"
+    },
+    "lastNotifiedAt": {
+      "type": "datetime"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "wishlist": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wishlist.wishlist"
+    }
+  }
+}
