@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_last_viewed",
+  "info": {
+    "displayName": "Last Viewed"
+  },
+  "attributes": {
+    "propertyId": {
+      "type": "string",
+      "required": true
+    },
+    "propertyName": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "price": {
+      "type": "float"
+    },
+       "timestamp": {
+      "type": "datetime"
+    }
+  }
+}
