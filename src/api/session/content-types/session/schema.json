@@ -34,7 +34,7 @@
     "wishlist": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "component::wishlist.wishlist"
+      "component": "wishlist-item.wishlist"
     }
   }
 }
