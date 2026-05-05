@@ -32,8 +32,8 @@
       "default": true
     },
     "wishlist": {
-      "type": "relation",
-      "relation": "oneToOne",
+      "type": "component",
+      "repeatable": false,
       "component": "wishlist-item.wishlist"
     }
   }
