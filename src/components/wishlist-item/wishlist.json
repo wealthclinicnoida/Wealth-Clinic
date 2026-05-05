@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_wishlist_items",
+  "info": {
+    "displayName": "Wishlist Item"
+  },
+  "attributes": {
+    "propertyId": {
+      "type": "string",
+      "required": true
+    },
+    "propertyName": {
+      "type": "string"
+    },
+
+    "price": {
+      "type": "decimal"
+    }
+  }
+}
