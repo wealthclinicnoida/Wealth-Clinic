@@ -1025,6 +1025,53 @@ export interface ApiAwardAward extends Schema.CollectionType {
   };
 }
 
+export interface ApiAyodhyaBlogAyodhyaBlog extends Schema.CollectionType {
+  collectionName: 'ayodhya_blogs';
+  info: {
+    singularName: 'ayodhya-blog';
+    pluralName: 'ayodhya-blogs';
+    displayName: 'Ayodhya blogs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<'api::ayodhya-blog.ayodhya-blog', 'Title'>;
+    BlogImg: Attribute.Media;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ayodhya-blog.ayodhya-blog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ayodhya-blog.ayodhya-blog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBannerBanner extends Schema.CollectionType {
   collectionName: 'banners';
   info: {
@@ -1076,6 +1123,13 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     Meta_Keyword: Attribute.Text;
     Schema: Attribute.Text;
     Description: Attribute.Blocks;
+    Description1: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     blog_categories: Attribute.Relation<
       'api::blog.blog',
       'oneToMany',
@@ -1090,6 +1144,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     Slug_Url: Attribute.UID<'api::blog.blog', 'Title'>;
     WrittenBy: Attribute.Text;
     BlogImg: Attribute.Media;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1150,8 +1205,17 @@ export interface ApiBuilderBuilder extends Schema.CollectionType {
     Total_Projects_of_Builder: Attribute.Integer;
     Address: Attribute.Text;
     Zip_Code: Attribute.String;
+    priority_number: Attribute.Integer;
     Phone: Attribute.BigInteger;
     Builder_Disclaimer: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Priority: Attribute.Boolean & Attribute.DefaultTo<false>;
     countries: Attribute.Relation<
       'api::builder.builder',
       'oneToMany',
@@ -1167,6 +1231,7 @@ export interface ApiBuilderBuilder extends Schema.CollectionType {
       'oneToMany',
       'api::create-city.create-city'
     >;
+    Slug_Url: Attribute.UID<'api::builder.builder', 'Title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1558,7 +1623,15 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
     Meta_Description: Attribute.String;
     Meta_Keyword: Attribute.String;
     City_Image: Attribute.Media;
+    City_background: Attribute.Media;
     Faqs: Attribute.Component<'faqs.faqs', true>;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1705,10 +1778,18 @@ export interface ApiEventEvent extends Schema.CollectionType {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Featured_Image: Attribute.Media & Attribute.Required;
+    Cover_Image: Attribute.Media & Attribute.Required;
     Start_Date: Attribute.Date & Attribute.Required;
     End_Date: Attribute.Date;
     Venue: Attribute.Text;
     Event_Description: Attribute.Blocks & Attribute.Required;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     Meta_Title: Attribute.String;
     Meta_Keyword: Attribute.String;
     Meta_Description: Attribute.Text;
@@ -1887,13 +1968,12 @@ export interface ApiHomePageHomePage extends Schema.CollectionType {
     singularName: 'home-page';
     pluralName: 'home-pages';
     displayName: 'home-page';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    templates: Attribute.Media;
+    templates: Attribute.Component<'sections.template-item', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2025,6 +2105,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     Project_Disclaimer: Attribute.Text;
     Add_Price_List: Attribute.Component<'price-list.create-price-list'>;
     Floor_Plan: Attribute.Component<'floor-plan.create-floor-plan'>;
+    External_Link: Attribute.String;
     Brochures: Attribute.Component<'brochure.create-brochure', true>;
     Near_Areas: Attribute.Component<'near-areas.create-near-areas', true>;
     Location_Map: Attribute.Component<'location-map.add-location-map'>;
@@ -2087,6 +2168,13 @@ export interface ApiProjectProject extends Schema.CollectionType {
     projectSequence: Attribute.Decimal;
     min_Area: Attribute.Integer;
     max_Area: Attribute.Integer;
+    updates: Attribute.Component<'updates.updates', true>;
+    teaser: Attribute.Media;
+    listen: Attribute.Text;
+    highlights: Attribute.Component<'sections.test-template-item', true>;
+    logo: Attribute.Media;
+    sitemap: Attribute.Media;
+    voice: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2215,7 +2303,7 @@ export interface ApiReviewReview extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     image: Attribute.Media;
-    comment: Attribute.String & Attribute.Required;
+    comment: Attribute.Text & Attribute.Required;
     rating: Attribute.Decimal &
       Attribute.Required &
       Attribute.SetMinMax<
@@ -2225,6 +2313,7 @@ export interface ApiReviewReview extends Schema.CollectionType {
         },
         number
       >;
+    link: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2236,6 +2325,43 @@ export interface ApiReviewReview extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSessionSession extends Schema.CollectionType {
+  collectionName: 'sessions';
+  info: {
+    singularName: 'session';
+    pluralName: 'sessions';
+    displayName: 'Session';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    sessionId: Attribute.String & Attribute.Required & Attribute.Unique;
+    email: Attribute.Email;
+    playerId: Attribute.String;
+    lastActiveAt: Attribute.DateTime;
+    lastNotifiedAt: Attribute.DateTime;
+    isActive: Attribute.Boolean & Attribute.DefaultTo<true>;
+    wishlist: Attribute.Component<'wishlist-item.wishlist', true>;
+    lastSearched: Attribute.Component<'last-searched.searched', true>;
+    lastViewed: Attribute.Component<'last-viewed.viewed', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::session.session',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::session.session',
       'oneToOne',
       'admin::user'
     > &
@@ -2340,6 +2466,36 @@ export interface ApiTermsAndConditionsTermsAndConditions
   };
 }
 
+export interface ApiTestBannerTestBanner extends Schema.CollectionType {
+  collectionName: 'test_banners';
+  info: {
+    singularName: 'test-banner';
+    pluralName: 'test-banners';
+    displayName: 'test-banners';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    templates: Attribute.Component<'sections.test-template-item', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::test-banner.test-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::test-banner.test-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -2352,7 +2508,7 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
   attributes: {
     Testimonials_Name: Attribute.String & Attribute.Required;
-    YouTube_Thumbnail: Attribute.Media & Attribute.Required;
+    YouTube_Thumbnail: Attribute.Media;
     YouTube_link: Attribute.Text;
     Description: Attribute.Text;
     createdAt: Attribute.DateTime;
@@ -2397,6 +2553,7 @@ declare module '@strapi/types' {
       'api::amenity.amenity': ApiAmenityAmenity;
       'api::amenity-category.amenity-category': ApiAmenityCategoryAmenityCategory;
       'api::award.award': ApiAwardAward;
+      'api::ayodhya-blog.ayodhya-blog': ApiAyodhyaBlogAyodhyaBlog;
       'api::banner.banner': ApiBannerBanner;
       'api::blog.blog': ApiBlogBlog;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
@@ -2427,9 +2584,11 @@ declare module '@strapi/types' {
       'api::project-view.project-view': ApiProjectViewProjectView;
       'api::property-type.property-type': ApiPropertyTypePropertyType;
       'api::review.review': ApiReviewReview;
+      'api::session.session': ApiSessionSession;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'api::team.team': ApiTeamTeam;
       'api::terms-and-conditions.terms-and-conditions': ApiTermsAndConditionsTermsAndConditions;
+      'api::test-banner.test-banner': ApiTestBannerTestBanner;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }

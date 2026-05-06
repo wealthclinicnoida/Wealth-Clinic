@@ -43,6 +43,13 @@
     "Description": {
       "type": "blocks"
     },
+     "Description1": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
     "blog_categories": {
       "type": "relation",
       "relation": "oneToMany",
@@ -72,6 +79,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+     "Faqs": {
+      "displayName": "Faqs",
+      "type": "component",
+      "repeatable": true,
+      "component": "faqs.faqs"
     }
   }
 }

@@ -24,9 +24,7 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "Builder_Experience": {
       "type": "integer"
@@ -40,11 +38,25 @@
     "Zip_Code": {
       "type": "string"
     },
+    "priority_number": {
+      "type": "integer"
+    },
     "Phone": {
       "type": "biginteger"
     },
     "Builder_Disclaimer": {
       "type": "text"
+    },
+      "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Priority": {
+      "type": "boolean",
+      "default": false
     },
     "countries": {
       "type": "relation",
@@ -60,6 +72,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::create-city.create-city"
+    },
+     "Slug_Url": {
+      "type": "uid",
+      "targetField": "Title"
     }
   }
 }

@@ -91,6 +91,10 @@
       "repeatable": false,
       "component": "floor-plan.create-floor-plan"
     },
+   "External_Link": {
+  "type": "string",
+  "required": false
+},
     "Brochures": {
       "type": "component",
       "repeatable": true,
@@ -195,6 +199,33 @@
     "max_Area": {
       "type": "integer",
       "required":false
-    }
+    },
+    "updates": {
+      "displayName": "Updates",
+      "type": "component",
+      "repeatable": true,
+      "component": "updates.updates"
+    },
+    "teaser": {
+      "type": "media"
+    },
+    "listen": {
+      "type": "text"
+    },
+    "highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.test-template-item"
+  },
+    "logo":{
+     "type": "media"
+  },
+        "sitemap":{
+     "type": "media"
   }
+    ,
+        "voice":{
+     "type": "media"
+  }
+}
 }

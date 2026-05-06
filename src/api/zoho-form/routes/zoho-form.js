@@ -35,6 +35,7 @@ async function getAccessToken() {
 }
 
 module.exports = {
+  // @ts-ignore
   async postZohoForm(ctx) {
     try {
       const accessToken = await getAccessToken();
@@ -55,12 +56,14 @@ module.exports = {
       console.log("Zoho Response:", response.data);
       ctx.send(response.data);
     } catch (error) {
+      // @ts-ignore
       console.error("Zoho Error:", error.response?.data || error.message);
       ctx.throw(500, "Error while submitting Zoho form");
     }
   },
 };
 
+// @ts-ignore
 function getZohoParams(ctx) {
   let OWNER_ID;
   const {

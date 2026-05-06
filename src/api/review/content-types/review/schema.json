@@ -20,7 +20,7 @@
       "required": false
     },
     "comment": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "rating": {
@@ -28,6 +28,14 @@
       "required": true,
       "min": 0,
       "max": 5
+    },
+     "link": {
+      "type": "string",
+      "required": true
     }
   }
 }
+
+
+
+

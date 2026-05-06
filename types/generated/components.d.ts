@@ -89,6 +89,37 @@ export interface FourPillersCreatePillers extends Schema.Component {
   };
 }
 
+export interface LastSearchedSearched extends Schema.Component {
+  collectionName: 'components_last_searched';
+  info: {
+    displayName: 'Last Searched';
+  };
+  attributes: {
+    searchQuery: Attribute.String;
+    city: Attribute.String;
+    type: Attribute.String;
+    category: Attribute.String;
+    budget: Attribute.String;
+    timestamp: Attribute.DateTime;
+  };
+}
+
+export interface LastViewedViewed extends Schema.Component {
+  collectionName: 'components_last_viewed';
+  info: {
+    displayName: 'Last Viewed';
+  };
+  attributes: {
+    propertyId: Attribute.String & Attribute.Required;
+    propertyName: Attribute.String;
+    city: Attribute.String;
+    price: Attribute.Float;
+    timestamp: Attribute.DateTime;
+    propertyImage: Attribute.String;
+    slug: Attribute.String;
+  };
+}
+
 export interface LocationMapAddLocationMap extends Schema.Component {
   collectionName: 'components_location_map_add_location_maps';
   info: {
@@ -147,6 +178,32 @@ export interface ResidenceVideoAddResidenceVideo extends Schema.Component {
   };
 }
 
+export interface SectionsTemplateItem extends Schema.Component {
+  collectionName: 'components_sections_template_items';
+  info: {
+    displayName: 'Template Item';
+    description: 'Single template item with image and link';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    link: Attribute.String;
+  };
+}
+
+export interface SectionsTestTemplateItem extends Schema.Component {
+  collectionName: 'components_sections_test_template_items';
+  info: {
+    displayName: 'Test Template Item';
+    description: 'Single template item with image and link';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    mobileimage: Attribute.Media & Attribute.Required;
+    link: Attribute.String;
+    desc: Attribute.String;
+  };
+}
+
 export interface SpecificationsCreateSpecifications extends Schema.Component {
   collectionName: 'components_specifications_create_specifications';
   info: {
@@ -156,6 +213,32 @@ export interface SpecificationsCreateSpecifications extends Schema.Component {
   attributes: {
     Title: Attribute.String;
     Descriptions: Attribute.Text;
+  };
+}
+
+export interface UpdatesUpdates extends Schema.Component {
+  collectionName: 'components_updates_updates';
+  info: {
+    displayName: 'Updates';
+  };
+  attributes: {
+    video: Attribute.Media;
+    name: Attribute.Text;
+  };
+}
+
+export interface WishlistItemWishlist extends Schema.Component {
+  collectionName: 'components_wishlist_items';
+  info: {
+    displayName: 'Wishlist Item';
+  };
+  attributes: {
+    propertyId: Attribute.String & Attribute.Required;
+    propertyName: Attribute.String;
+    propertyImage: Attribute.String;
+    price: Attribute.Decimal;
+    slug: Attribute.String;
+    city: Attribute.String;
   };
 }
 
@@ -169,12 +252,18 @@ declare module '@strapi/types' {
       'faqs.faqs': FaqsFaqs;
       'floor-plan.create-floor-plan': FloorPlanCreateFloorPlan;
       'four-pillers.create-pillers': FourPillersCreatePillers;
+      'last-searched.searched': LastSearchedSearched;
+      'last-viewed.viewed': LastViewedViewed;
       'location-map.add-location-map': LocationMapAddLocationMap;
       'near-areas.create-near-areas': NearAreasCreateNearAreas;
       'our-ethos.create-ethos': OurEthosCreateEthos;
       'price-list.create-price-list': PriceListCreatePriceList;
       'residence-video.add-residence-video': ResidenceVideoAddResidenceVideo;
+      'sections.template-item': SectionsTemplateItem;
+      'sections.test-template-item': SectionsTestTemplateItem;
       'specifications.create-specifications': SpecificationsCreateSpecifications;
+      'updates.updates': UpdatesUpdates;
+      'wishlist-item.wishlist': WishlistItemWishlist;
     }
   }
 }
