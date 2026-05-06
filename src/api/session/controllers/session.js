@@ -1,43 +1,57 @@
-'use strict';
+"use strict";
+
+const SESSION_UID = "api::session.session";
+
+// =====================================
+// HELPERS
+// =====================================
+
+async function findSession(sessionId) {
+  const sessions = await strapi.entityService.findMany(SESSION_UID, {
+    filters: { sessionId },
+    limit: 1,
+  });
+
+  return sessions?.[0] || null;
+}
+
+async function updateSession(id, data) {
+  return await strapi.entityService.update(SESSION_UID, id, {
+    data,
+  });
+}
+
+// =====================================
+// CONTROLLER
+// =====================================
 
 module.exports = {
 
-  // =========================
-  // 🔹 UPSERT SESSION
-  // =========================
-  async upsertSession(ctx) {
-    const { sessionId, email, playerId } = ctx.request.body;
+  // =====================================
+  // CREATE / UPSERT SESSION
+  // =====================================
 
-    if (!sessionId) {
-      return ctx.badRequest('sessionId required');
-    }
+  async upsert(ctx) {
+    try {
+      const { sessionId, email, playerId } = ctx.request.body;
 
-    const now = new Date();
+      if (!sessionId) {
+        return ctx.badRequest("sessionId required");
+      }
 
-    let existing = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const now = new Date();
 
-    let session;
+      let session = await findSession(sessionId);
 
-    if (existing.length > 0) {
-      session = await strapi.entityService.update(
-        'api::session.session',
-        existing[0].id,
-        {
-          data: {
-            email,
-            playerId,
-            lastActiveAt: now,
-            isActive: true
-          }
-        }
-      );
-    } else {
-      session = await strapi.entityService.create(
-        'api::session.session',
-        {
+      if (session) {
+        session = await updateSession(session.id, {
+          email,
+          playerId,
+          lastActiveAt: now,
+          isActive: true,
+        });
+      } else {
+        session = await strapi.entityService.create(SESSION_UID, {
           data: {
             sessionId,
             email,
@@ -46,275 +60,378 @@ module.exports = {
             isActive: true,
             wishlist: [],
             lastViewed: [],
-            lastSearched: []
-          }
-        }
+            lastSearched: [],
+          },
+        });
+      }
+
+      return ctx.send({
+        success: true,
+        data: session,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
+  },
+
+  // =====================================
+  // GET SESSION
+  // =====================================
+
+  async get(ctx) {
+    try {
+      const { sessionId } = ctx.params;
+
+      const session = await findSession(sessionId);
+
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
+
+      return ctx.send({
+        success: true,
+        data: session,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
+  },
+
+  // =====================================
+  // UPDATE SESSION
+  // =====================================
+
+  async update(ctx) {
+    try {
+      const { sessionId } = ctx.params;
+
+      const session = await findSession(sessionId);
+
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
+
+      const updated = await updateSession(
+        session.id,
+        ctx.request.body
       );
+
+      return ctx.send({
+        success: true,
+        data: updated,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
     }
-
-    return ctx.send({ success: true, data: session });
   },
 
-  // =========================
-  // 🔥 WISHLIST
-  // =========================
+  // =====================================
+  // DELETE SESSION
+  // =====================================
 
-  async createWishlist(ctx) {
-    const { sessionId, name } = ctx.request.body;
+  async delete(ctx) {
+    try {
+      const { sessionId } = ctx.params;
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const session = await findSession(sessionId);
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    session = session[0];
+      await strapi.entityService.delete(
+        SESSION_UID,
+        session.id
+      );
 
-    const wishlists = session.wishlist || [];
+      return ctx.send({
+        success: true,
+      });
 
-    if (wishlists.find(w => w.name === name)) {
-      return ctx.send({ message: 'Wishlist exists' });
+    } catch (err) {
+      return ctx.badRequest(err.message);
     }
-
-    wishlists.push({ name, items: [] });
-
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { wishlist: wishlists },
-    });
-
-    return ctx.send({ success: true });
   },
 
-  async getWishlists(ctx) {
-    const { sessionId } = ctx.query;
+  // =====================================
+  // WISHLIST
+  // =====================================
 
-    const session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+  async addWishlist(ctx) {
+    try {
 
-    return ctx.send({
-      wishlists: session[0]?.wishlist || [],
-    });
-  },
+      const {
+        sessionId,
+        propertyId,
+        propertyName,
+        price,
+        slug,
+      } = ctx.request.body;
 
-  async addToWishlist(ctx) {
-    const { sessionId, propertyId, propertyName, price } = ctx.request.body;
+      let session = await findSession(sessionId);
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      let wishlist = session.wishlist || [];
 
-    session = session[0];
+      wishlist = wishlist.filter(
+        item => item.propertyId !== propertyId
+      );
 
+      wishlist.unshift({
+        propertyId,
+        propertyName,
+        price,
+        slug,
+        addedAt: new Date(),
+      });
 
-    if (wishlist?.find(i => i.propertyId === propertyId)) {
-      return ctx.send({ message: 'Already exists' });
+      wishlist = wishlist.slice(0, 100);
+
+      const updated = await updateSession(session.id, {
+        wishlist,
+      });
+
+      return ctx.send({
+        success: true,
+        wishlist: updated.wishlist,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
     }
-
-    wishlist.push({ propertyId, propertyName, price });
-
-    if (wishlist.length > 50) wishlist.shift();
-
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { wishlist: wishlists },
-    });
-
-    return ctx.send({ success: true });
   },
 
-  async updateWishlistItem(ctx) {
-    const { sessionId, wishlistName, propertyId, updates } = ctx.request.body;
+  async getWishlist(ctx) {
+    try {
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const { sessionId } = ctx.params;
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      const session = await findSession(sessionId);
 
-    session = session[0];
+      return ctx.send({
+        success: true,
+        wishlist: session?.wishlist || [],
+      });
 
-    const wishlists = session.wishlist || [];
-    const wishlist = wishlists.find(w => w.name === wishlistName);
-
-    if (!wishlist) return ctx.badRequest('Wishlist not found');
-
-    const item = wishlist.items.find(i => i.propertyId === propertyId);
-
-    if (!item) return ctx.badRequest('Item not found');
-
-    Object.assign(item, updates);
-
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { wishlist: wishlists },
-    });
-
-    return ctx.send({ success: true });
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
-  async removeFromWishlist(ctx) {
-    const { sessionId, wishlistName, propertyId } = ctx.request.body;
+  async removeWishlist(ctx) {
+    try {
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const { sessionId, propertyId } = ctx.request.body;
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      let session = await findSession(sessionId);
 
-    session = session[0];
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    const wishlists = session.wishlist || [];
-    const wishlist = wishlists.find(w => w.name === wishlistName);
+      const wishlist = (session.wishlist || []).filter(
+        item => item.propertyId !== propertyId
+      );
 
-    if (!wishlist) return ctx.badRequest('Wishlist not found');
+      await updateSession(session.id, {
+        wishlist,
+      });
 
-    wishlist.items = wishlist.items.filter(
-      i => i.propertyId !== propertyId
-    );
+      return ctx.send({
+        success: true,
+      });
 
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { wishlist: wishlists },
-    });
-
-    return ctx.send({ success: true });
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
-  // =========================
-  // 👀 LAST VIEWED
-  // =========================
+  // =====================================
+  // LAST VIEWED
+  // =====================================
 
   async addViewed(ctx) {
-    const { sessionId, propertyId, propertyName, price } = ctx.request.body;
+    try {
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const {
+        sessionId,
+        propertyId,
+        propertyName,
+        price,
+        slug,
+      } = ctx.request.body;
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      let session = await findSession(sessionId);
 
-    session = session[0];
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    let viewed = session.lastViewed || [];
+      let viewed = session.lastViewed || [];
 
-    viewed = viewed.filter(v => v.propertyId !== propertyId);
-    viewed.unshift({ propertyId, propertyName, price });
+      viewed = viewed.filter(
+        item => item.propertyId !== propertyId
+      );
 
-    if (viewed.length > 10) viewed.pop();
+      viewed.unshift({
+        propertyId,
+        propertyName,
+        price,
+        slug,
+        viewedAt: new Date(),
+      });
 
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { lastViewed: viewed },
-    });
+      viewed = viewed.slice(0, 20);
 
-    return ctx.send({ success: true });
+      const updated = await updateSession(session.id, {
+        lastViewed: viewed,
+      });
+
+      return ctx.send({
+        success: true,
+        viewed: updated.lastViewed,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
   async getViewed(ctx) {
-    const { sessionId } = ctx.query;
+    try {
 
-    const session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const { sessionId } = ctx.params;
 
-    return ctx.send({
-      viewed: session[0]?.lastViewed || [],
-    });
+      const session = await findSession(sessionId);
+
+      return ctx.send({
+        success: true,
+        viewed: session?.lastViewed || [],
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
-  async removeViewed(ctx) {
-    const { sessionId, propertyId } = ctx.request.body;
+  async clearViewed(ctx) {
+    try {
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const { sessionId } = ctx.request.body;
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      let session = await findSession(sessionId);
 
-    session = session[0];
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    let viewed = session.lastViewed || [];
+      await updateSession(session.id, {
+        lastViewed: [],
+      });
 
-    viewed = viewed.filter(v => v.propertyId !== propertyId);
+      return ctx.send({
+        success: true,
+      });
 
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { lastViewed: viewed },
-    });
-
-    return ctx.send({ success: true });
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
-  // =========================
-  // 🔍 LAST SEARCHED
-  // =========================
+  // =====================================
+  // LAST SEARCHED
+  // =====================================
 
-  async addSearched(ctx) {
-    const { sessionId, searchQuery, city, type } = ctx.request.body;
+  async addSearch(ctx) {
+    try {
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const {
+        sessionId,
+        searchQuery,
+        city,
+        type,
+      } = ctx.request.body;
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      let session = await findSession(sessionId);
 
-    session = session[0];
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    let searched = session.lastSearched || [];
+      let searched = session.lastSearched || [];
 
-    searched.unshift({
-      searchQuery,
-      city,
-      type,
-      timestamp: new Date(),
-    });
+      searched = searched.filter(
+        item => item.searchQuery !== searchQuery
+      );
 
-    if (searched.length > 10) searched.pop();
+      searched.unshift({
+        searchQuery,
+        city,
+        type,
+        searchedAt: new Date(),
+      });
 
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { lastSearched: searched },
-    });
+      searched = searched.slice(0, 20);
 
-    return ctx.send({ success: true });
+      const updated = await updateSession(session.id, {
+        lastSearched: searched,
+      });
+
+      return ctx.send({
+        success: true,
+        searched: updated.lastSearched,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
-  async getSearched(ctx) {
-    const { sessionId } = ctx.query;
+  async getSearch(ctx) {
+    try {
 
-    const session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const { sessionId } = ctx.params;
 
-    return ctx.send({
-      searched: session[0]?.lastSearched || [],
-    });
+      const session = await findSession(sessionId);
+
+      return ctx.send({
+        success: true,
+        searched: session?.lastSearched || [],
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
   },
 
-  async clearSearched(ctx) {
-    const { sessionId } = ctx.request.body;
+  async clearSearch(ctx) {
+    try {
 
-    let session = await strapi.entityService.findMany(
-      'api::session.session',
-      { filters: { sessionId }, limit: 1 }
-    );
+      const { sessionId } = ctx.request.body;
 
-    if (!session.length) return ctx.badRequest('Session not found');
+      let session = await findSession(sessionId);
 
-    session = session[0];
+      if (!session) {
+        return ctx.notFound("Session not found");
+      }
 
-    await strapi.entityService.update('api::session.session', session.id, {
-      data: { lastSearched: [] },
-    });
+      await updateSession(session.id, {
+        lastSearched: [],
+      });
 
-    return ctx.send({ success: true });
-  }
+      return ctx.send({
+        success: true,
+      });
+
+    } catch (err) {
+      return ctx.badRequest(err.message);
+    }
+  },
 
 };
