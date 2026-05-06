@@ -28,7 +28,7 @@
     "scheduler": "^0.27.0",
     "strapi-plugin-multi-select": "^1.2.3",
     "strapi-plugin-vercel-deploy": "^1.4.0",
-    "styled-components": "^5.3.11"
+"styled-components": "5.3.3"
   },
   "author": {
     "name": "A Strapi developer"
