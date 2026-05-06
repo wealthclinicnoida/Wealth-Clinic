@@ -40,14 +40,26 @@ export interface BrochureCreateBrochure extends Schema.Component {
   };
 }
 
+export interface ConfigurationPriceConfigurationPrice extends Schema.Component {
+  collectionName: 'components_configuration_prices';
+  info: {
+    displayName: 'Configuration Price';
+    description: 'Stores apartment type and price';
+  };
+  attributes: {
+    type: Attribute.String & Attribute.Required;
+    price: Attribute.Integer & Attribute.Required;
+  };
+}
+
 export interface FaqsFaqs extends Schema.Component {
   collectionName: 'components_faqs_faqs';
   info: {
     displayName: 'Faqs';
   };
   attributes: {
-    Question: Attribute.String;
-    Answer: Attribute.String;
+    Question: Attribute.Text;
+    Answer: Attribute.Text;
   };
 }
 
@@ -146,23 +158,14 @@ export interface SpecificationsCreateSpecifications extends Schema.Component {
     Descriptions: Attribute.Text;
   };
 }
-export interface ConfigurationPriceConfigurationPrice extends Schema.Component {
-  collectionName: 'components_configuration_prices';
-  info: {
-    displayName: 'Configuration Price';
-    description: 'Stores apartment type and price';
-  };
-  attributes: {
-    type: Attribute.String & Attribute.Required; // e.g., 1 BHK, 2 BHK
-    price: Attribute.Integer & Attribute.Required; // Price in INR
-  };
-}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'benefits-perks.create-benefits-and-perks': BenefitsPerksCreateBenefitsAndPerks;
       'branches.create-branches': BranchesCreateBranches;
       'brochure.create-brochure': BrochureCreateBrochure;
+      'configuration-price.configuration-price': ConfigurationPriceConfigurationPrice;
       'faqs.faqs': FaqsFaqs;
       'floor-plan.create-floor-plan': FloorPlanCreateFloorPlan;
       'four-pillers.create-pillers': FourPillersCreatePillers;
@@ -172,7 +175,6 @@ declare module '@strapi/types' {
       'price-list.create-price-list': PriceListCreatePriceList;
       'residence-video.add-residence-video': ResidenceVideoAddResidenceVideo;
       'specifications.create-specifications': SpecificationsCreateSpecifications;
-      'configuration-price.configuration-price': ConfigurationPriceConfigurationPrice;
     }
   }
 }

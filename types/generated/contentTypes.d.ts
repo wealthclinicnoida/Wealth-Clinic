@@ -1025,6 +1025,37 @@ export interface ApiAwardAward extends Schema.CollectionType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    location: Attribute.String & Attribute.Required;
+    file: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -1522,10 +1553,12 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
       'api::builder.builder'
     >;
     Meta_Title: Attribute.String;
+    desc: Attribute.Text;
     Meta_Link: Attribute.String;
     Meta_Description: Attribute.String;
     Meta_Keyword: Attribute.String;
     City_Image: Attribute.Media;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1717,6 +1750,37 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiEventBannerEventBanner extends Schema.CollectionType {
+  collectionName: 'event-banners';
+  info: {
+    singularName: 'event-banner';
+    pluralName: 'event-banners';
+    displayName: 'Event Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    device: Attribute.String & Attribute.Required;
+    file: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-banner.event-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-banner.event-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHandleEventHandleEvent extends Schema.CollectionType {
   collectionName: 'handle_events';
   info: {
@@ -1778,6 +1842,38 @@ export interface ApiHappyCustomerHappyCustomer extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::happy-customer.happy-customer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHighTeaHighTea extends Schema.CollectionType {
+  collectionName: 'high_teas';
+  info: {
+    singularName: 'high-tea';
+    pluralName: 'high-teas';
+    displayName: 'High Tea';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    image: Attribute.Media;
+    count: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::high-tea.high-tea',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::high-tea.high-tea',
       'oneToOne',
       'admin::user'
     > &
@@ -1906,6 +2002,10 @@ export interface ApiProjectProject extends Schema.CollectionType {
     Image: Attribute.Media;
     Min_Price: Attribute.Integer;
     Max_Price: Attribute.Integer;
+    Configuration_Price: Attribute.Component<
+      'configuration-price.configuration-price',
+      true
+    >;
     Total_Floors: Attribute.Integer;
     TotalPropertySize: Attribute.Integer;
     Possession_Month_Year: Attribute.Date;
@@ -2102,6 +2202,47 @@ export interface ApiPropertyTypePropertyType extends Schema.CollectionType {
   };
 }
 
+export interface ApiReviewReview extends Schema.CollectionType {
+  collectionName: 'reviews';
+  info: {
+    singularName: 'review';
+    pluralName: 'reviews';
+    displayName: 'Review';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    image: Attribute.Media;
+    comment: Attribute.String & Attribute.Required;
+    rating: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 5;
+        },
+        number
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubCategorySubCategory extends Schema.CollectionType {
   collectionName: 'sub_categories';
   info: {
@@ -2120,6 +2261,7 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
       'oneToOne',
       'api::category.category'
     >;
+    Image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2255,6 +2397,7 @@ declare module '@strapi/types' {
       'api::amenity.amenity': ApiAmenityAmenity;
       'api::amenity-category.amenity-category': ApiAmenityCategoryAmenityCategory;
       'api::award.award': ApiAwardAward;
+      'api::banner.banner': ApiBannerBanner;
       'api::blog.blog': ApiBlogBlog;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::builder.builder': ApiBuilderBuilder;
@@ -2272,8 +2415,10 @@ declare module '@strapi/types' {
       'api::disclaimer.disclaimer': ApiDisclaimerDisclaimer;
       'api::employee-award.employee-award': ApiEmployeeAwardEmployeeAward;
       'api::event.event': ApiEventEvent;
+      'api::event-banner.event-banner': ApiEventBannerEventBanner;
       'api::handle-event.handle-event': ApiHandleEventHandleEvent;
       'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
+      'api::high-tea.high-tea': ApiHighTeaHighTea;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
@@ -2281,6 +2426,7 @@ declare module '@strapi/types' {
       'api::project-rating.project-rating': ApiProjectRatingProjectRating;
       'api::project-view.project-view': ApiProjectViewProjectView;
       'api::property-type.property-type': ApiPropertyTypePropertyType;
+      'api::review.review': ApiReviewReview;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'api::team.team': ApiTeamTeam;
       'api::terms-and-conditions.terms-and-conditions': ApiTermsAndConditionsTermsAndConditions;
