@@ -40,6 +40,9 @@
     "Meta_Keyword": {
       "type": "string"
     },
+    "Slug": {
+      "type": "string"
+    },
     "City_Image": {
       "allowedTypes": [
         "images",
