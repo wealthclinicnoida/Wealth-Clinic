@@ -38,7 +38,7 @@
       "type": "string"
     },
     "Meta_Keyword": {
-      "type": "string"
+      "type": "text"
     },
     "Slug": {
       "type": "string"
