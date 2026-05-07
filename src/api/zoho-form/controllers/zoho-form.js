@@ -1,11 +1,6 @@
 const axios = require("axios");
-// @ts-ignore
-const qs = require("querystring");
 
 module.exports = {
-  /**
-   * @param {{ send: (arg0: any) => void; throw: (arg0: number, arg1: string) => void; }} ctx
-   */
   async postZohoForm(ctx) {
     try {
       const zohoFormParamsUrl = await getZohoParams(ctx); // ✅ wait for URL
@@ -18,19 +13,13 @@ module.exports = {
 
       ctx.send(response.data);
     } catch (error) {
-      console.error(
-        "Error submitting zoho form:",
-        // @ts-ignore
-        error.response?.data || error.message
-      );
+      console.error("Error submitting zoho form:", error);
       ctx.throw(500, "An error occurred while submitting the form");
     }
   },
 };
 
-// @ts-ignore
 const getZohoParams = async (ctx) => {
-  // @ts-ignore
   const OWNER_ID = 3664837000038157001;
   const {
     Contact_ID,
