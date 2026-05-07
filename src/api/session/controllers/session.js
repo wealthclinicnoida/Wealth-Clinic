@@ -332,7 +332,7 @@ module.exports = {
       }
 
       let viewed = session.lastViewed || [];
-
+console.log(viewed)
       viewed = viewed.filter((item) => item.propertyId !== propertyId);
 
       viewed.unshift({
