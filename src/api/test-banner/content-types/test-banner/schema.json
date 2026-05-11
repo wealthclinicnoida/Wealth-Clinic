@@ -16,7 +16,7 @@
       "component": "sections.test-template-item"
     },
     "voice": {
-      "type": "media",
+      "type": "media"
     }
   }
 }
