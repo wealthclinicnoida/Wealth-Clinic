@@ -24,6 +24,9 @@
     "Image": {
       "type": "media",
       "multiple": false
+    },
+    "value": {
+      "type": "string",
     }
   }
 }
