@@ -160,6 +160,11 @@
       "relation": "oneToOne",
       "target": "api::create-city.create-city"
     },
+      "area": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::area.area"
+    },
     "Priority": {
       "type": "boolean"
     },
