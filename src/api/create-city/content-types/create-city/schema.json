@@ -15,6 +15,9 @@
     "City_Name": {
       "type": "string"
     },
+    "tag_line":{
+      "type":"text"
+    },
     "create_state": {
       "type": "relation",
       "relation": "oneToOne",
@@ -80,6 +83,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::area.area"
+    },
+     "priority": {
+      "type": "Boolean"
+    },
+    "min_roi":{
+      "type":"Number"
+  },
+    "max_roi":{
+     "type":"Number"
+    },
+    "image_loc":{
+      "type":"text"
     }
-  }
 }
