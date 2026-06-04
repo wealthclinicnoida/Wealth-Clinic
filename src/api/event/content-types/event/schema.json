@@ -98,6 +98,8 @@
     },
     "gallery":{
       "type":"media",
-      "multiple":true
+      "multiple":true,
+      "allowedTypes": ["images"]
+
   }
 }       
