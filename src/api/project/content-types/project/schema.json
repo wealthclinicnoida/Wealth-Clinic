@@ -232,7 +232,7 @@
         "voice":{
      "type": "media"
   },
-        "hindivoice":{
+        "voice1":{
      "type": "media"
   }
 }
