@@ -95,6 +95,9 @@
       "type": "component",
       "repeatable": false,
       "component": "location-map.add-location-map"
-    }
+    },
+    "gallery":{
+      "type":"media",
+      "multiple":true
   }
 }       
