@@ -231,6 +231,9 @@
     ,
         "voice":{
      "type": "media"
+  },
+        "hindivoice":{
+     "type": "media"
   }
 }
 }
