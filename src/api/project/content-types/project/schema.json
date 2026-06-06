@@ -66,7 +66,7 @@
       "type": "string"
     },
     "Meta_Keyword": {
-      "type": "string"
+      "type": "text"
     },
     "Schema": {
       "type": "text"
