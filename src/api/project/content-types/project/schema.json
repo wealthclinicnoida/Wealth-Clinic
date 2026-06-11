@@ -225,15 +225,20 @@
     "logo":{
      "type": "media"
   },
-        "sitemap":{
-     "type": "media"
-  }
-    ,
-        "voice":{
+  "sitemap":{
      "type": "media"
   },
-        "voice1":{
+  "voice":{
      "type": "media"
-  }
+  },
+  "voice1":{
+    "type": "media"
+  },
+  "rank_level":{
+    "type":"text"
+  },
+    "rank":{
+      "type":"integer"
+    }
 }
 }
