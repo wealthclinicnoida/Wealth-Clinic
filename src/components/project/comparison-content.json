@@ -7,6 +7,9 @@
     "pros": {
       "type": "json"
     },
+     "crons": {
+      "type": "json"
+    },
     "whoShouldBuy": {
       "type": "json"
     },
