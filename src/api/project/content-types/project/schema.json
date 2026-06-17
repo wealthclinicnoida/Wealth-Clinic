@@ -24,9 +24,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "Min_Price": {
       "type": "integer",
@@ -36,7 +34,7 @@
       "type": "integer",
       "required": false
     },
-     "Configuration_Price": {
+    "Configuration_Price": {
       "type": "component",
       "repeatable": true,
       "component": "configuration-price.configuration-price"
@@ -91,10 +89,10 @@
       "repeatable": false,
       "component": "floor-plan.create-floor-plan"
     },
-   "External_Link": {
-  "type": "string",
-  "required": false
-},
+    "External_Link": {
+      "type": "string",
+      "required": false
+    },
     "Brochures": {
       "type": "component",
       "repeatable": true,
@@ -160,7 +158,7 @@
       "relation": "oneToOne",
       "target": "api::create-city.create-city"
     },
-      "area": {
+    "area": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::area.area"
@@ -199,11 +197,11 @@
     },
     "min_Area": {
       "type": "integer",
-      "required":false
+      "required": false
     },
     "max_Area": {
       "type": "integer",
-      "required":false
+      "required": false
     },
     "updates": {
       "displayName": "Updates",
@@ -221,24 +219,34 @@
       "type": "component",
       "repeatable": true,
       "component": "sections.test-template-item"
-  },
-    "logo":{
-     "type": "media"
-  },
-  "sitemap":{
-     "type": "media"
-  },
-  "voice":{
-     "type": "media"
-  },
-  "voice1":{
-    "type": "media"
-  },
-  "rank_level":{
-    "type":"text"
-  },
-    "rank":{
-      "type":"integer"
+    },
+    "logo": {
+      "type": "media"
+    },
+    "sitemap": {
+      "type": "media"
+    },
+    "voice": {
+      "type": "media"
+    },
+    "voice1": {
+      "type": "media"
+    },
+    "rank_level": {
+      "type": "text"
+    },
+    "rank": {
+      "type": "integer"
+    },
+    "comparisonFactors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project.comparison-factor"
+    },
+    "comparisonContent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project.comparison-content"
     }
-}
+  }
 }
