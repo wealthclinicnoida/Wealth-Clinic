@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_comparison_factors",
+  "info": {
+    "displayName": "Comparison Factor"
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "score": {
+      "type": "integer"
+    }
+  }
+}
