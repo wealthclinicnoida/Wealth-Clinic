@@ -247,6 +247,11 @@
       "type": "component",
       "repeatable": false,
       "component": "project.comparison-content"
-    }
+    },
+    "comparisonROI": {
+  "type": "component",
+  "repeatable": false,
+  "component": "comparison.comparison-roi"
+}
   }
 }
