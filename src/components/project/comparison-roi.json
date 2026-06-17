@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_comparison_rois",
+  "info": {
+    "displayName": "Comparison ROI"
+  },
+  "attributes": {
+    "expectedROI": {
+      "type": "string"
+    },
+    "expectedAppreciation": {
+      "type": "string"
+    },
+    "fiveYearProjection": {
+      "type": "string"
+    },
+    "rentalYield": {
+      "type": "string"
+    },
+    "investmentType": {
+      "type": "enumeration",
+      "enum": [
+        "Investment",
+        "End User",
+        "Rental Income",
+        "Commercial"
+      ]
+    }
+  }
+}
