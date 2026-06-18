@@ -80,6 +80,13 @@
       "type": "media",
       "multiple": false
     },
+    "moreImg":{
+      "allowedTypes":[
+        "images"
+      ],
+      "type":"media",
+      "multiple":true
+    },
      "Faqs": {
       "displayName": "Faqs",
       "type": "component",
