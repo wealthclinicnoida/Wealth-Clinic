@@ -80,13 +80,12 @@
       "type": "media",
       "multiple": false
     },
-    "moreImg":{
-      "allowedTypes":[
-        "images"
-      ],
-      "type":"media",
-      "multiple":true
-    },
+   "moreImg": {
+      "displayName": "moreImg",
+      "type": "component",
+      "repeatable": true,
+      "component": "blog.moreimg"
+    }
      "Faqs": {
       "displayName": "Faqs",
       "type": "component",
