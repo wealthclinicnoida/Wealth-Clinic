@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_moreImg_moreImg",
+  "info": {
+    "displayName": "moreImg"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "text"
+    }
+  }
+}
