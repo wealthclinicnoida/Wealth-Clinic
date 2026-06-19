@@ -19,9 +19,7 @@
     "investmentType": {
       "type": "enumeration",
       "enum": [
-        "Investment",
-        "End User",
-        "Rental Income",
+        "Residential",
         "Commercial"
       ]
     }
