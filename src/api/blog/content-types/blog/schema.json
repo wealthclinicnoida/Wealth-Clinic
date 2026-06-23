@@ -91,6 +91,11 @@
       "type": "component",
       "repeatable": true,
       "component": "faqs.faqs"
+    },
+     "blog_author": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author"
     }
   }
 }
