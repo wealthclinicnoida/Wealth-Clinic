@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog-side",
+  "info": {
+    "singularName": "blog-side",
+    "pluralName": "blog-sides",
+    "displayName": "Blog Side Image",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media"
+    }
+  }
+}
