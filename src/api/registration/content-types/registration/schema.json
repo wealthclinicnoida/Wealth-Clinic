@@ -18,15 +18,15 @@
     "image": {
       "type": "media"
     },
-    "mb-image": {
+    "mbImage": {
       "type": "media"
     },
     "slug": {
       "type": "uid",
       "targetField": "name"
     },
-    "event form name":{
-        "type":"string"
+    "eventFormName": {
+      "type": "string"
     }
   }
 }
