@@ -7,7 +7,7 @@
     "displayName": "Registration"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "attributes": {
     "name": {
