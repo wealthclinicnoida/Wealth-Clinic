@@ -67,7 +67,7 @@
       "type": "text"
     },
     "Schema": {
-      "type": "text"
+      "type": "json"
     },
     "Meta_Description": {
       "type": "text"
