@@ -18,6 +18,9 @@
     },
     "Image": {
       "type": "media"
+    },
+    "rank":{
+      "type":"Number"
     }
   }
 }
