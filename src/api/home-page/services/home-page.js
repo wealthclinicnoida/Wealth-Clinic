@@ -1,9 +1,10 @@
 'use strict';
 
-/**
- * home-page service
- */
-
-const { createCoreService } = require('@strapi/strapi').factories;
-
-module.exports = createCoreService('api::home-page.home-page');
+module.exports = () => ({
+  async getHomepage() {
+    return {
+      success: true,
+      message: 'Homepage API is working',
+    };
+  },
+});
