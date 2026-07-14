@@ -17,7 +17,7 @@ module.exports = {
 
   // Cities
   strapi.entityService.findMany('api::create-city.create-city', {
-    fields: ['Title', 'Slug'],
+    fields: ['City_Name', 'Slug_Url'],
   }),
 
   // Residential Sub Categories
@@ -29,7 +29,7 @@ module.exports = {
         },
       },
     },
-    fields: ['Title', 'Slug'],
+    fields: ['Title', 'Slug_Url'],
   }),
 
   // Commercial Sub Categories
@@ -41,7 +41,7 @@ module.exports = {
         },
       },
     },
-    fields: ['Title', 'Slug'],
+    fields: ['Title', 'Slug_Url'],
   }),
 
   // Residential Projects
@@ -55,14 +55,9 @@ module.exports = {
     },
     fields: [
       'Project_Name',
-      'Slug',
+      'Slug_Url',
       'Min_Price',
       'Max_Price',
-      'Project_Status',
-      'Possession_Status',
-      'RERA',
-      'Project_Tag',
-      'Featured',
       'newLaunches'
     ],
     populate: {
@@ -70,10 +65,10 @@ module.exports = {
         fields: ['url', 'alternativeText']
       },
       create_city: {
-        fields: ['Title', 'Slug']
+        fields: ['City_Name', 'Slug_Url']
       },
-      sub_category: {
-        fields: ['Title', 'Slug']
+      sub_categories: {
+        fields: ['Title', 'Slug_Url']
       },
       category: {
         fields: ['Title']
@@ -89,19 +84,18 @@ module.exports = {
     },
     fields: [
       'Project_Name',
-      'Slug',
+      'Slug_Url',
       'Min_Price',
-      'Max_Price',
-      'Project_Status'
+      'Max_Price'
     ],
     populate: {
       Image: {
         fields: ['url']
       },
       create_city: {
-        fields: ['Title', 'Slug']
+        fields: ['City_Name', 'Slug_Url']
       },
-      sub_category: {
+      sub_categories: {
         fields: ['Title']
       },
     },
@@ -115,10 +109,10 @@ module.exports = {
     },
     fields: [
       'Builder_Name',
-      'Slug'
+      'Slug_Url'
     ],
     populate: {
-      Logo: {
+      Builder_Image: {
         fields: ['url']
       }
     },
@@ -131,13 +125,11 @@ module.exports = {
     },
     fields: [
       'Title',
-      'Slug',
-      'Short_Description',
-      'Pubish_Date',
-      'Read_Time'
+      'Slug_Url',
+      'Pubish_Date'
     ],
     populate: {
-      Featured_Image: {
+      BlogImg: {
         fields: ['url']
       }
     },
@@ -147,13 +139,12 @@ module.exports = {
   // Reviews
   strapi.entityService.findMany('api::review.review', {
     fields: [
-      'Name',
-      'Designation',
-      'Rating',
-      'Review'
+      'name',
+      'rating',
+      'comment'
     ],
     populate: {
-      Image: {
+      image: {
         fields: ['url']
       }
     },
@@ -164,15 +155,27 @@ module.exports = {
     'api::all-social-media-link.all-social-media-link',
     {
       fields: [
-        'Facebook',
-        'Instagram',
-        'LinkedIn',
-        'Twitter',
-        'Youtube'
+        'Facebook_URL',
+        'Instagram_URL',
+        'Linkdin_URL',
+        'Twitter_URL',
+        'YouTube_URL'
       ],
     }
   ),
 ]);
+
+      ctx.body = {
+        cities,
+        residentialSubCategories,
+        commercialSubCategories,
+        residentialProjects,
+        newLaunches,
+        builders,
+        blogs,
+        reviews,
+        socialLinks,
+      };
     } catch (error) {
       console.error(error);
       ctx.throw(500, error);
