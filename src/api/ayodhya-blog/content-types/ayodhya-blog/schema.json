@@ -28,6 +28,9 @@
       "type": "date",
       "required": true
     },
+    "ScheduledAt": {
+      "type": "datetime"
+    },
     "Meta_Title": {
       "type": "string"
     },
@@ -66,6 +69,11 @@
       "type": "component",
       "repeatable": true,
       "component": "faqs.faqs"
+    },
+     "blog_author": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author"
     }
   }
 }
