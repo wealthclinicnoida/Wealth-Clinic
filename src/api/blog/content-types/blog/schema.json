@@ -28,6 +28,9 @@
       "type": "date",
       "required": true
     },
+    "ScheduledAt": {
+      "type": "datetime"
+    },
     "Meta_Title": {
       "type": "string"
     },
@@ -79,12 +82,6 @@
       ],
       "type": "media",
       "multiple": false
-    },
-   "moreImg": {
-      "displayName": "moreImg",
-      "type": "component",
-      "repeatable": true,
-      "component": "blog.moreimg"
     },
      "Faqs": {
       "displayName": "Faqs",
