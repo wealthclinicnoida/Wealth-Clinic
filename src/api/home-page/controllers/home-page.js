@@ -17,7 +17,7 @@ module.exports = {
 
   // Cities
   strapi.entityService.findMany('api::create-city.create-city', {
-    fields: ['City_Name', 'Slug_Url'],
+    fields: ['City_Name', 'Slug'],
   }),
 
   // Residential Sub Categories
@@ -65,7 +65,7 @@ module.exports = {
         fields: ['url', 'alternativeText']
       },
       create_city: {
-        fields: ['City_Name', 'Slug_Url']
+        fields: ['City_Name', 'Slug']
       },
       sub_categories: {
         fields: ['Title', 'Slug_Url']
