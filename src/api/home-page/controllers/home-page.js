@@ -29,7 +29,7 @@ module.exports = {
         },
       },
     },
-    fields: ['Title', 'Slug_Url'],
+    fields: ['Title'],
   }),
 
   // Commercial Sub Categories
@@ -41,7 +41,7 @@ module.exports = {
         },
       },
     },
-    fields: ['Title', 'Slug_Url'],
+    fields: ['Title'],
   }),
 
   // Residential Projects
@@ -68,7 +68,7 @@ module.exports = {
         fields: ['City_Name', 'Slug']
       },
       sub_categories: {
-        fields: ['Title', 'Slug_Url']
+        fields: ['Title']
       },
       category: {
         fields: ['Title']
