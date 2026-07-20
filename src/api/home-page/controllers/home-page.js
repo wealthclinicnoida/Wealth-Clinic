@@ -93,7 +93,7 @@ module.exports = {
         fields: ['url']
       },
       create_city: {
-        fields: ['City_Name', 'Slug_Url']
+        fields: ['City_Name', 'Slug']
       },
       sub_categories: {
         fields: ['Title']
