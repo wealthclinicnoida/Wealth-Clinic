@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lifes",
+  "info": {
+    "singularName": "life",
+    "pluralName": "lifes",
+    "displayName": "Life"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "ranking": {
+      "type": "integer"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

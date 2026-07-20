@@ -15,6 +15,10 @@
     "City_Name": {
       "type": "string"
     },
+    "Slug_Url": {
+      "type": "uid",
+      "targetField": "City_Name"
+    },
     "create_state": {
       "type": "relation",
       "relation": "oneToOne",
@@ -28,7 +32,7 @@
     "Meta_Title": {
       "type": "string"
     },
-     "desc": {
+    "desc": {
       "type": "text"
     },
     "Meta_Link": {
@@ -41,22 +45,12 @@
       "type": "string"
     },
     "City_Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+      "allowedTypes": ["images", "files", "videos", "audios"],
       "type": "media",
       "multiple": true
     },
-      "City_background": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+    "City_background": {
+      "allowedTypes": ["images", "files", "videos", "audios"],
       "type": "media",
       "multiple": false
     },
@@ -66,12 +60,17 @@
       "repeatable": true,
       "component": "faqs.faqs"
     },
-      "Description": {
+    "Description": {
       "type": "customField",
       "options": {
         "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::area.area"
     }
   }
 }

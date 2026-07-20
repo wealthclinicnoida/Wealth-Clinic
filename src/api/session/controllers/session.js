@@ -151,8 +151,15 @@ module.exports = {
 
   async addWishlist(ctx) {
     try {
-      const { sessionId, propertyId, propertyName, price, propertyImage , city, slug} =
-        ctx.request.body;
+      const {
+        sessionId,
+        propertyId,
+        propertyName,
+        price,
+        propertyImage,
+        city,
+        slug,
+      } = ctx.request.body;
 
       const sessions = await strapi.entityService.findMany(
         "api::session.session",
@@ -332,7 +339,7 @@ module.exports = {
       }
 
       let viewed = session.lastViewed || [];
-
+      console.log(viewed);
       viewed = viewed.filter((item) => item.propertyId !== propertyId);
 
       viewed.unshift({
@@ -413,10 +420,20 @@ module.exports = {
 
   async addSearch(ctx) {
     try {
-      const { sessionId, searchQuery, city, type } = ctx.request.body;
+      const { sessionId, searchQuery } = ctx.request.body;
 
-      let session = await findSession(sessionId);
+      const sessions = await strapi.entityService.findMany(
+        "api::session.session",
+        {
+          filters: { sessionId },
+          populate: {
+            lastSearched: true,
+          },
+          limit: 1,
+        }
+      );
 
+      const session = sessions?.[0];
       if (!session) {
         return ctx.notFound("Session not found");
       }
@@ -427,15 +444,14 @@ module.exports = {
 
       searched.unshift({
         searchQuery,
-        city,
-        type,
-        searchedAt: new Date(),
+        timestamp: new Date(),
       });
 
       searched = searched.slice(0, 20);
 
       const updated = await updateSession(session.id, {
         lastSearched: searched,
+        timestamp: new Date(),
       });
 
       return ctx.send({
@@ -451,8 +467,18 @@ module.exports = {
     try {
       const { sessionId } = ctx.params;
 
-      const session = await findSession(sessionId);
+      const sessions = await strapi.entityService.findMany(
+        "api::session.session",
+        {
+          filters: { sessionId },
+          populate: {
+            lastSearched: true,
+          },
+          limit: 1,
+        }
+      );
 
+      const session = sessions?.[0];
       return ctx.send({
         success: true,
         searched: session?.lastSearched || [],
@@ -466,8 +492,17 @@ module.exports = {
     try {
       const { sessionId } = ctx.request.body;
 
-      let session = await findSession(sessionId);
-
+      const sessions = await strapi.entityService.findMany(
+        "api::session.session",
+        {
+          filters: { sessionId },
+          populate: {
+            lastSearched: true,
+          },
+          limit: 1,
+        }
+      );
+      const session = sessions?.[0];
       if (!session) {
         return ctx.notFound("Session not found");
       }

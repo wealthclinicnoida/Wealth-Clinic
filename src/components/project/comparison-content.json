@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_project_comparison_contents",
+  "info": {
+    "displayName": "Comparison Content"
+  },
+  "attributes": {
+    "pros": {
+      "type": "json"
+    },
+    "whoShouldBuy": {
+      "type": "json"
+    },
+    "keyDifferences": {
+      "type": "json"
+    }
+  }
+}

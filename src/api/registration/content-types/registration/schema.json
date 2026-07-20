@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registrations",
+  "info": {
+    "singularName": "registration",
+    "pluralName": "registrations",
+    "displayName": "Registration"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "image": {
+      "type": "media"
+    },
+    "mb-image": {
+      "type": "media"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "event form name":{
+        "type":"string"
+    }
+  }
+}

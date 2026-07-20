@@ -16,6 +16,10 @@
       "type": "string",
       "required": true
     },
+    "Slug_Url": {
+      "type": "uid",
+      "targetField": "Title"
+    },
     "category": {
       "type": "relation",
       "relation": "oneToOne",
