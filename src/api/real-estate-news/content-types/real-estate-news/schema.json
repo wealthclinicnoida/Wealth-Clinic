@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "real_estate_news_articles",
   "info": {
-    "singularName": "real-estate-news",
-    "pluralName": "real-estate-news-articles",
+    "singularName": "new",
+    "pluralName": "news",
     "displayName": "Real Estate News",
     "description": ""
   },
