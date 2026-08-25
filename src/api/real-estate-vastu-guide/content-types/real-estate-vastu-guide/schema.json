@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "real_estate_vastu_guides",
   "info": {
-    "singularName": "vastu-guide",
-    "pluralName": "vastu-guides",
+    "singularName": "real-estate-vastu-guide",
+    "pluralName": "real-estate-vastu-guides",
     "displayName": "Real Estate Vastu Guide",
     "description": ""
   },
