@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "real_estate_news_articles",
   "info": {
-    "singularName": "real-estate-news-article",
+    "singularName": "real-estate-news",
     "pluralName": "real-estate-news-articles",
     "displayName": "Real Estate News",
     "description": ""
