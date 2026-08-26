@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "real_estate_news_articles",
+  "info": {
+    "singularName": "real-estate-news",
+    "pluralName": "real-estate-news-articles",
+    "displayName": "Real Estate News",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Pubish_Date": {
+      "type": "date",
+      "required": true
+    },
+    "ScheduledAt": {
+      "type": "datetime"
+    },
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Meta_Keyword": {
+      "type": "text"
+    },
+    "Schema": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Meta_Link": {
+      "type": "string"
+    },
+    "Slug_Url": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "WrittenBy": {
+      "type": "text"
+    },
+    "Faqs": {
+      "displayName": "Faqs",
+      "type": "component",
+      "repeatable": true,
+      "component": "faqs.faqs"
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author"
+    }
+  }
+}
