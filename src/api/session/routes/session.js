@@ -69,7 +69,7 @@ module.exports = {
       handler: "session.getSearch",
     },
     {
-      method: "DELETE",
+      method: "POST",
       path: "/session/search/clear",
       handler: "session.clearSearch",
     },
