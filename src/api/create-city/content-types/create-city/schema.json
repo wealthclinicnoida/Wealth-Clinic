@@ -15,9 +15,8 @@
     "City_Name": {
       "type": "string"
     },
-    "Slug_Url": {
-      "type": "uid",
-      "targetField": "City_Name"
+    "tag_line":{
+      "type":"text"
     },
     "create_state": {
       "type": "relation",
@@ -42,6 +41,9 @@
       "type": "string"
     },
     "Meta_Keyword": {
+      "type": "text"
+    },
+    "Slug": {
       "type": "string"
     },
     "City_Image": {
@@ -71,6 +73,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::area.area"
+    },
+     "priority": {
+      "type": "boolean"
+    },
+    "min_roi":{
+      "type":"integer"
+  },
+    "max_roi":{
+     "type":"integer"
+    },
+    "image_loc":{
+      "type":"text"
     }
-  }
+}
 }

@@ -17,7 +17,7 @@ module.exports = {
 
   // Cities
   strapi.entityService.findMany('api::create-city.create-city', {
-    fields: ['City_Name', 'Slug_Url'],
+    fields: ['City_Name', 'Slug'],
   }),
 
   // Residential Sub Categories
@@ -29,12 +29,59 @@ module.exports = {
         },
       },
     },
-    fields: ['Title', 'Slug_Url'],
+    fields: ['Title'],
   }),
 
+  // Commercial Sub Categories
+  strapi.entityService.findMany('api::sub-category.sub-category', {
+    filters: {
+      category: {
+        Title: {
+          $eqi: 'Comercial',
+        },
+      },
+    },
+    fields: ['Title'],
+  }),
 
+  // Residential Projects
   strapi.entityService.findMany('api::project.project', {
-   
+    filters: {
+      category: {
+        Title: {
+          $eqi: 'Residential',
+        },
+      },
+    },
+    fields: [
+      'Project_Name',
+      'Slug_Url',
+      'Min_Price',
+      'Max_Price',
+      'newLaunches'
+    ],
+    populate: {
+      Image: {
+        fields: ['url', 'alternativeText']
+      },
+      create_city: {
+        fields: ['City_Name', 'Slug']
+      },
+      sub_categories: {
+        fields: ['Title']
+      },
+      category: {
+        fields: ['Title']
+      }
+    },
+    limit: 1000,
+  }),
+
+  // New Launches
+  strapi.entityService.findMany('api::project.project', {
+    filters: {
+      newLaunches: true,
+    },
     fields: [
       'Project_Name',
       'Slug_Url',
@@ -71,7 +118,24 @@ module.exports = {
     },
   }),
 
-  
+  // Blogs
+  strapi.entityService.findMany('api::blog.blog', {
+    sort: {
+      Pubish_Date: 'desc',
+    },
+    fields: [
+      'Title',
+      'Slug_Url',
+      'Pubish_Date'
+    ],
+    populate: {
+      BlogImg: {
+        fields: ['url']
+      }
+    },
+    limit: 4,
+  }),
+
   // Reviews
   strapi.entityService.findMany('api::review.review', {
     fields: [

@@ -88,7 +88,7 @@ module.exports = {
           }
         },
         options: {
-          rule: '*/5 * * * *', // Run every 5 minutes
+          rule: '* * * * *', // Run every minute
         },
       },
     });
@@ -124,7 +124,7 @@ module.exports = {
           }
         },
         options: {
-          rule: '*/5 * * * *', // Run every 5 minutes
+          rule: '* * * * *', // Run every minute
         },
       },
     });
