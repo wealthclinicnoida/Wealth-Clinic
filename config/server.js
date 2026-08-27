@@ -10,26 +10,23 @@ module.exports = ({ env }) => ({
     keys: env.array("APP_KEYS"),
   },
 
-  webhooks: {
-    populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
-  },
-
-  // Enable Strapi cron jobs
   cron: {
     enabled: true,
-    tasks: cronTasks,
+    tasks: require("./cron-tasks"),
   },
 
-  // Gmail Email Configuration
+  webhooks: {
+    populateRelations: env.bool(
+      "WEBHOOKS_POPULATE_RELATIONS",
+      false
+    ),
+  },
+
   email: {
     gmail: {
       user: env("GMAIL_USER"),
       appPassword: env("GMAIL_APP_PASSWORD"),
     },
-
-    recipientList: [
-      // Add recipient emails here
-      // { email: "recipient@example.com", name: "Recipient Name" }
-    ],
+    recipientList: [],
   },
 });
