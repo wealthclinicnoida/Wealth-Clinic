@@ -5,7 +5,6 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      enabled: true,
       origin: ["*"], // ✅ Allow all origins
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
       methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
