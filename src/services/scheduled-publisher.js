@@ -52,18 +52,15 @@ async function publishScheduledContent(strapi) {
 
       const entries = await strapi.entityService.findMany(uid, {
         publicationState: "preview",
-
         filters: {
           publishedAt: {
             $null: true,
           },
-
           ScheduledAt: {
             $notNull: true,
             $lte: now,
           },
         },
-
         limit: 100,
       });
 
@@ -71,7 +68,6 @@ async function publishScheduledContent(strapi) {
         strapi.log.info(
           `[SCHEDULED-PUBLISHER] ${label}: nothing to publish`
         );
-
         continue;
       }
 
@@ -101,13 +97,13 @@ async function publishScheduledContent(strapi) {
             `ID ${entry.id}`;
 
           strapi.log.info(
-            `[SCHEDULED-PUBLISHER] PUBLISHED | ${label} | ID=${entry.id} | "${title}" | ${publishedAt.toISOString()}`
+            `[SCHEDULED-PUBLISHER] ✅ PUBLISHED | ${label} | ID=${entry.id} | "${title}" | ${publishedAt.toISOString()}`
           );
         } catch (error) {
           totalErrors++;
 
           strapi.log.error(
-            `[SCHEDULED-PUBLISHER] PUBLISH FAILED | ${label} | ID=${entry.id} | ${error.message}`
+            `[SCHEDULED-PUBLISHER] ❌ PUBLISH FAILED | ${label} | ID=${entry.id} | ${error.message}`
           );
         }
       }
@@ -115,7 +111,7 @@ async function publishScheduledContent(strapi) {
       totalErrors++;
 
       strapi.log.error(
-        `[SCHEDULED-PUBLISHER] ${label} ERROR | ${error.message}`
+        `[SCHEDULED-PUBLISHER] ❌ ${label} ERROR | ${error.message}`
       );
     }
   }
@@ -124,7 +120,7 @@ async function publishScheduledContent(strapi) {
   const duration = finishedAt.getTime() - startedAt.getTime();
 
   strapi.log.info(
-    `[SCHEDULED-PUBLISHER] FINISHED | Found=${totalFound} | Published=${totalPublished} | Errors=${totalErrors} | Duration=${duration}ms`
+    `[SCHEDULED-PUBLISHER] 🏁 FINISHED | Found=${totalFound} | Published=${totalPublished} | Errors=${totalErrors} | Duration=${duration}ms`
   );
 
   return {
