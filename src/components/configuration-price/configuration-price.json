@@ -12,7 +12,7 @@
       "description": "Type of apartment, e.g., 1 BHK, 2 BHK"
     },
     "link": {
-      "type": "string",
+      "type": "string"
     }
   }
 }
