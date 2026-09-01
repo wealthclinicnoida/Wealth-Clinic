@@ -5,7 +5,7 @@ const {
 } = require("../src/services/scheduled-publisher");
 
 module.exports = {
-  "* * * * *": async ({ strapi }) => {
+  "0 */12 * * *": async ({ strapi }) => {
     await publishScheduledContent(strapi);
   },
 };
