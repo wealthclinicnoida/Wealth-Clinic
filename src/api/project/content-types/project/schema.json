@@ -241,20 +241,8 @@
     "rank": {
       "type": "integer"
     },
-    "comparisonFactors": {
-      "type": "component",
-      "repeatable": true,
-      "component": "project.comparison-factor"
-    },
-    "comparisonContent": {
-      "type": "component",
-      "repeatable": false,
-      "component": "project.comparison-content"
-    },
-    "comparisonROI": {
-  "type": "component",
-  "repeatable": false,
-  "component": "project.comparison-roi"
-}
+    "TagLine":{
+      "type":"text"
+    }
   }
 }
