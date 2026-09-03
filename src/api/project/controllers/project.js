@@ -14,12 +14,12 @@ module.exports = createCoreController("api::project.project", ({ strapi }) => ({
 
     if (slugFilter && entry) {
       try {
-        const newViews = (entry.attributes.views || 0) + 1;
-        await strapi.db.query("api::project.project").update({
+        await strapi.db.connection("projects").where({ id: entry.id }).increment("views", 1);
+        const updated = await strapi.db.query("api::project.project").findOne({
           where: { id: entry.id },
-          data: { views: newViews },
+          select: ["views"],
         });
-        entry.attributes.views = newViews;
+        entry.attributes.views = updated.views;
       } catch (error) {
         strapi.log.error("Failed to increment project views:", error);
       }
