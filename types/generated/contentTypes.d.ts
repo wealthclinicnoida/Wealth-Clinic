@@ -987,6 +987,61 @@ export interface ApiAmenityCategoryAmenityCategory
   };
 }
 
+export interface ApiAreaArea extends Schema.CollectionType {
+  collectionName: 'areas';
+  info: {
+    singularName: 'area';
+    pluralName: 'areas';
+    displayName: 'Area';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'Author';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    Image: Attribute.Media;
+    Description: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAwardAward extends Schema.CollectionType {
   collectionName: 'awards';
   info: {
@@ -1040,6 +1095,7 @@ export interface ApiAyodhyaBlogAyodhyaBlog extends Schema.CollectionType {
     Title: Attribute.String & Attribute.Required;
     Image: Attribute.Media & Attribute.Required;
     Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
     Meta_Title: Attribute.String;
     Meta_Description: Attribute.Text;
     Meta_Keyword: Attribute.Text;
@@ -1054,6 +1110,11 @@ export interface ApiAyodhyaBlogAyodhyaBlog extends Schema.CollectionType {
     Slug_Url: Attribute.UID<'api::ayodhya-blog.ayodhya-blog', 'Title'>;
     BlogImg: Attribute.Media;
     Faqs: Attribute.Component<'faqs.faqs', true>;
+    blog_author: Attribute.Relation<
+      'api::ayodhya-blog.ayodhya-blog',
+      'oneToMany',
+      'api::author.author'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1118,6 +1179,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     Title: Attribute.String & Attribute.Required;
     Image: Attribute.Media & Attribute.Required;
     Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
     Meta_Title: Attribute.String;
     Meta_Description: Attribute.Text;
     Meta_Keyword: Attribute.Text;
@@ -1145,6 +1207,19 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     WrittenBy: Attribute.Text;
     BlogImg: Attribute.Media;
     Faqs: Attribute.Component<'faqs.faqs', true>;
+    blog_author: Attribute.Relation<
+      'api::blog.blog',
+      'oneToMany',
+      'api::author.author'
+    >;
+    views: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1179,6 +1254,39 @@ export interface ApiBlogCategoryBlogCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::blog-category.blog-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogSideBlogSide extends Schema.CollectionType {
+  collectionName: 'blog-side';
+  info: {
+    singularName: 'blog-side';
+    pluralName: 'blog-sides';
+    displayName: 'Blog Side Image';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Link: Attribute.String & Attribute.Required;
+    Image: Attribute.Media;
+    rank: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-side.blog-side',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-side.blog-side',
       'oneToOne',
       'admin::user'
     > &
@@ -1448,6 +1556,64 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCityLocalLivingGuideCityLocalLivingGuide
+  extends Schema.CollectionType {
+  collectionName: 'city_local_living_guides';
+  info: {
+    singularName: 'city-local-living-guide';
+    pluralName: 'city-local-living-guides';
+    displayName: 'City & Local Living Guides';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Schema: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<
+      'api::city-local-living-guide.city-local-living-guide',
+      'Title'
+    >;
+    WrittenBy: Attribute.Text;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    authors: Attribute.Relation<
+      'api::city-local-living-guide.city-local-living-guide',
+      'oneToMany',
+      'api::author.author'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::city-local-living-guide.city-local-living-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::city-local-living-guide.city-local-living-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClientSatisfactionClientSatisfaction
   extends Schema.SingleType {
   collectionName: 'client_satisfactions';
@@ -1607,6 +1773,7 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
   };
   attributes: {
     City_Name: Attribute.String;
+    tag_line: Attribute.Text;
     create_state: Attribute.Relation<
       'api::create-city.create-city',
       'oneToOne',
@@ -1621,7 +1788,8 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
     desc: Attribute.Text;
     Meta_Link: Attribute.String;
     Meta_Description: Attribute.String;
-    Meta_Keyword: Attribute.String;
+    Meta_Keyword: Attribute.Text;
+    Slug: Attribute.String;
     City_Image: Attribute.Media;
     City_background: Attribute.Media;
     Faqs: Attribute.Component<'faqs.faqs', true>;
@@ -1632,6 +1800,15 @@ export interface ApiCreateCityCreateCity extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    areas: Attribute.Relation<
+      'api::create-city.create-city',
+      'oneToMany',
+      'api::area.area'
+    >;
+    priority: Attribute.Boolean;
+    min_roi: Attribute.Integer;
+    max_roi: Attribute.Integer;
+    image_loc: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1813,6 +1990,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     Meta_Link: Attribute.String;
     Slug_Url: Attribute.UID<'api::event.event', 'Title'>;
     Location_Map: Attribute.Component<'location-map.add-location-map'>;
+    gallery: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1962,29 +2140,193 @@ export interface ApiHighTeaHighTea extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomePageHomePage extends Schema.CollectionType {
-  collectionName: 'home_pages';
+export interface ApiHomeInteriorHomeInterior extends Schema.CollectionType {
+  collectionName: 'home_interiors';
   info: {
-    singularName: 'home-page';
-    pluralName: 'home-pages';
-    displayName: 'home-page';
+    singularName: 'home-interior';
+    pluralName: 'home-interiors';
+    displayName: 'Home & Interiors';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    templates: Attribute.Component<'sections.template-item', true>;
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Schema: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<'api::home-interior.home-interior', 'Title'>;
+    WrittenBy: Attribute.Text;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    authors: Attribute.Relation<
+      'api::home-interior.home-interior',
+      'oneToMany',
+      'api::author.author'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::home-page.home-page',
+      'api::home-interior.home-interior',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::home-page.home-page',
+      'api::home-interior.home-interior',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLegalDocumentationGuideLegalDocumentationGuide
+  extends Schema.CollectionType {
+  collectionName: 'legal_documentation_guides';
+  info: {
+    singularName: 'legal-documentation-guide';
+    pluralName: 'legal-documentation-guides';
+    displayName: 'Legal & Documentation Guide';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Schema: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<
+      'api::legal-documentation-guide.legal-documentation-guide',
+      'Title'
+    >;
+    WrittenBy: Attribute.Text;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    authors: Attribute.Relation<
+      'api::legal-documentation-guide.legal-documentation-guide',
+      'oneToMany',
+      'api::author.author'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::legal-documentation-guide.legal-documentation-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::legal-documentation-guide.legal-documentation-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLifeLife extends Schema.CollectionType {
+  collectionName: 'lifes';
+  info: {
+    singularName: 'life';
+    pluralName: 'lifes';
+    displayName: 'Life';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required & Attribute.Unique;
+    ranking: Attribute.Integer;
+    images: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::life.life', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::life.life', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLuxuryRealEstateLuxuryRealEstate
+  extends Schema.CollectionType {
+  collectionName: 'luxury_real_estates';
+  info: {
+    singularName: 'luxury-real-estate';
+    pluralName: 'luxury-real-estates';
+    displayName: "India's Luxury Real Estate";
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Schema: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<
+      'api::luxury-real-estate.luxury-real-estate',
+      'Title'
+    >;
+    WrittenBy: Attribute.Text;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    authors: Attribute.Relation<
+      'api::luxury-real-estate.luxury-real-estate',
+      'oneToMany',
+      'api::author.author'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::luxury-real-estate.luxury-real-estate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::luxury-real-estate.luxury-real-estate',
       'oneToOne',
       'admin::user'
     > &
@@ -2098,8 +2440,9 @@ export interface ApiProjectProject extends Schema.CollectionType {
       >;
     Project_Configuration: Attribute.String;
     Meta_Title: Attribute.String;
-    Meta_Keyword: Attribute.String;
+    Meta_Keyword: Attribute.Text;
     Schema: Attribute.Text;
+    JsonSchema: Attribute.JSON;
     Meta_Description: Attribute.Text;
     Address: Attribute.Text;
     Project_Disclaimer: Attribute.Text;
@@ -2154,6 +2497,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::create-city.create-city'
     >;
+    area: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::area.area'
+    >;
     Priority: Attribute.Boolean;
     Meta_Link: Attribute.String;
     Slug_Url: Attribute.UID<'api::project.project', 'Project_Name'>;
@@ -2175,6 +2523,18 @@ export interface ApiProjectProject extends Schema.CollectionType {
     logo: Attribute.Media;
     sitemap: Attribute.Media;
     voice: Attribute.Media;
+    voice1: Attribute.Media;
+    rank_level: Attribute.Text;
+    rank: Attribute.Integer;
+    TagLine: Attribute.Text;
+    views: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2290,6 +2650,152 @@ export interface ApiPropertyTypePropertyType extends Schema.CollectionType {
   };
 }
 
+export interface ApiRealEstateNewsRealEstateNews extends Schema.CollectionType {
+  collectionName: 'real_estate_news_articles';
+  info: {
+    singularName: 'real-estate-news';
+    pluralName: 'real-estate-news-articles';
+    displayName: 'Real Estate News';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Schema: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<'api::real-estate-news.real-estate-news', 'Title'>;
+    WrittenBy: Attribute.Text;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    authors: Attribute.Relation<
+      'api::real-estate-news.real-estate-news',
+      'oneToMany',
+      'api::author.author'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::real-estate-news.real-estate-news',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::real-estate-news.real-estate-news',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRealEstateVastuGuideRealEstateVastuGuide
+  extends Schema.CollectionType {
+  collectionName: 'real_estate_vastu_guides';
+  info: {
+    singularName: 'real-estate-vastu-guide';
+    pluralName: 'real-estate-vastu-guides';
+    displayName: 'Real Estate Vastu Guide';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Pubish_Date: Attribute.Date & Attribute.Required;
+    ScheduledAt: Attribute.DateTime;
+    Meta_Title: Attribute.String;
+    Meta_Description: Attribute.Text;
+    Meta_Keyword: Attribute.Text;
+    Schema: Attribute.Text;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Meta_Link: Attribute.String;
+    Slug_Url: Attribute.UID<
+      'api::real-estate-vastu-guide.real-estate-vastu-guide',
+      'Title'
+    >;
+    WrittenBy: Attribute.Text;
+    Faqs: Attribute.Component<'faqs.faqs', true>;
+    authors: Attribute.Relation<
+      'api::real-estate-vastu-guide.real-estate-vastu-guide',
+      'oneToMany',
+      'api::author.author'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::real-estate-vastu-guide.real-estate-vastu-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::real-estate-vastu-guide.real-estate-vastu-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRegistrationRegistration extends Schema.CollectionType {
+  collectionName: 'registrations';
+  info: {
+    singularName: 'registration';
+    pluralName: 'registrations';
+    displayName: 'Registration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    image: Attribute.Media;
+    mbImage: Attribute.Media;
+    slug: Attribute.UID<'api::registration.registration', 'name'>;
+    eventFormName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::registration.registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::registration.registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiReviewReview extends Schema.CollectionType {
   collectionName: 'reviews';
   info: {
@@ -2382,12 +2888,14 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
+    Slug_Url: Attribute.UID<'api::sub-category.sub-category', 'Title'>;
     category: Attribute.Relation<
       'api::sub-category.sub-category',
       'oneToOne',
       'api::category.category'
     >;
     Image: Attribute.Media;
+    value: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2478,6 +2986,8 @@ export interface ApiTestBannerTestBanner extends Schema.CollectionType {
   };
   attributes: {
     templates: Attribute.Component<'sections.test-template-item', true>;
+    voice: Attribute.Media;
+    hindivoice: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2552,17 +3062,21 @@ declare module '@strapi/types' {
       'api::all-social-media-link.all-social-media-link': ApiAllSocialMediaLinkAllSocialMediaLink;
       'api::amenity.amenity': ApiAmenityAmenity;
       'api::amenity-category.amenity-category': ApiAmenityCategoryAmenityCategory;
+      'api::area.area': ApiAreaArea;
+      'api::author.author': ApiAuthorAuthor;
       'api::award.award': ApiAwardAward;
       'api::ayodhya-blog.ayodhya-blog': ApiAyodhyaBlogAyodhyaBlog;
       'api::banner.banner': ApiBannerBanner;
       'api::blog.blog': ApiBlogBlog;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
+      'api::blog-side.blog-side': ApiBlogSideBlogSide;
       'api::builder.builder': ApiBuilderBuilder;
       'api::career.career': ApiCareerCareer;
       'api::career-department.career-department': ApiCareerDepartmentCareerDepartment;
       'api::career-form.career-form': ApiCareerFormCareerForm;
       'api::career-position.career-position': ApiCareerPositionCareerPosition;
       'api::category.category': ApiCategoryCategory;
+      'api::city-local-living-guide.city-local-living-guide': ApiCityLocalLivingGuideCityLocalLivingGuide;
       'api::client-satisfaction.client-satisfaction': ApiClientSatisfactionClientSatisfaction;
       'api::comment.comment': ApiCommentComment;
       'api::contact-us.contact-us': ApiContactUsContactUs;
@@ -2576,13 +3090,19 @@ declare module '@strapi/types' {
       'api::handle-event.handle-event': ApiHandleEventHandleEvent;
       'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
       'api::high-tea.high-tea': ApiHighTeaHighTea;
-      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::home-interior.home-interior': ApiHomeInteriorHomeInterior;
+      'api::legal-documentation-guide.legal-documentation-guide': ApiLegalDocumentationGuideLegalDocumentationGuide;
+      'api::life.life': ApiLifeLife;
+      'api::luxury-real-estate.luxury-real-estate': ApiLuxuryRealEstateLuxuryRealEstate;
       'api::media-coverage.media-coverage': ApiMediaCoverageMediaCoverage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
       'api::project-rating.project-rating': ApiProjectRatingProjectRating;
       'api::project-view.project-view': ApiProjectViewProjectView;
       'api::property-type.property-type': ApiPropertyTypePropertyType;
+      'api::real-estate-news.real-estate-news': ApiRealEstateNewsRealEstateNews;
+      'api::real-estate-vastu-guide.real-estate-vastu-guide': ApiRealEstateVastuGuideRealEstateVastuGuide;
+      'api::registration.registration': ApiRegistrationRegistration;
       'api::review.review': ApiReviewReview;
       'api::session.session': ApiSessionSession;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;

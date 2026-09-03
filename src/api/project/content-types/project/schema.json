@@ -243,6 +243,11 @@
     },
     "TagLine":{
       "type":"text"
+    },
+    "views": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }

@@ -11,6 +11,17 @@ export interface BenefitsPerksCreateBenefitsAndPerks extends Schema.Component {
   };
 }
 
+export interface BlogMoreimg extends Schema.Component {
+  collectionName: 'components_moreImg_moreImg';
+  info: {
+    displayName: 'moreImg';
+  };
+  attributes: {
+    image: Attribute.Media;
+    link: Attribute.Text;
+  };
+}
+
 export interface BranchesCreateBranches extends Schema.Component {
   collectionName: 'components_branches_create_branches';
   info: {
@@ -48,7 +59,7 @@ export interface ConfigurationPriceConfigurationPrice extends Schema.Component {
   };
   attributes: {
     type: Attribute.String & Attribute.Required;
-    price: Attribute.Integer & Attribute.Required;
+    link: Attribute.String;
   };
 }
 
@@ -167,6 +178,44 @@ export interface PriceListCreatePriceList extends Schema.Component {
   };
 }
 
+export interface ProjectComparisonContent extends Schema.Component {
+  collectionName: 'components_project_comparison_contents';
+  info: {
+    displayName: 'Comparison Content';
+  };
+  attributes: {
+    pros: Attribute.JSON;
+    crons: Attribute.JSON;
+    whoShouldBuy: Attribute.JSON;
+    keyDifferences: Attribute.JSON;
+  };
+}
+
+export interface ProjectComparisonFactor extends Schema.Component {
+  collectionName: 'components_comparison_factors';
+  info: {
+    displayName: 'Comparison Factor';
+  };
+  attributes: {
+    title: Attribute.String;
+    score: Attribute.Integer;
+  };
+}
+
+export interface ProjectComparisonRoi extends Schema.Component {
+  collectionName: 'components_comparison_rois';
+  info: {
+    displayName: 'Comparison ROI';
+  };
+  attributes: {
+    expectedROI: Attribute.String;
+    expectedAppreciation: Attribute.String;
+    fiveYearProjection: Attribute.String;
+    rentalYield: Attribute.String;
+    investmentType: Attribute.Enumeration<['Residential', 'Commercial']>;
+  };
+}
+
 export interface ResidenceVideoAddResidenceVideo extends Schema.Component {
   collectionName: 'components_residence_video_add_residence_videos';
   info: {
@@ -246,6 +295,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'benefits-perks.create-benefits-and-perks': BenefitsPerksCreateBenefitsAndPerks;
+      'blog.moreimg': BlogMoreimg;
       'branches.create-branches': BranchesCreateBranches;
       'brochure.create-brochure': BrochureCreateBrochure;
       'configuration-price.configuration-price': ConfigurationPriceConfigurationPrice;
@@ -258,6 +308,9 @@ declare module '@strapi/types' {
       'near-areas.create-near-areas': NearAreasCreateNearAreas;
       'our-ethos.create-ethos': OurEthosCreateEthos;
       'price-list.create-price-list': PriceListCreatePriceList;
+      'project.comparison-content': ProjectComparisonContent;
+      'project.comparison-factor': ProjectComparisonFactor;
+      'project.comparison-roi': ProjectComparisonRoi;
       'residence-video.add-residence-video': ResidenceVideoAddResidenceVideo;
       'sections.template-item': SectionsTemplateItem;
       'sections.test-template-item': SectionsTestTemplateItem;

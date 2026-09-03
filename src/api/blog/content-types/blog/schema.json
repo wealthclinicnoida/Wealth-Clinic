@@ -93,6 +93,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::author.author"
+    },
+    "views": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }
