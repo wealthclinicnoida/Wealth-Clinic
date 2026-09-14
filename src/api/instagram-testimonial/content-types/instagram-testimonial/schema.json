@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instagram_testimonials",
+  "info": {
+    "singularName": "instagram-testimonial",
+    "pluralName": "instagram-testimonials",
+    "displayName": "Instagram Testimonial",
+    "description": "Customer testimonials sourced from Instagram for the Happy Customers page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customerName": {
+      "type": "string",
+      "required": true
+    },
+    "instagramUrl": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string"
+    },
+    "testimonialText": {
+      "type": "text"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

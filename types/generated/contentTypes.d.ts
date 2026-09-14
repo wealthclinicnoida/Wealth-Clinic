@@ -2194,6 +2194,44 @@ export interface ApiHomeInteriorHomeInterior extends Schema.CollectionType {
   };
 }
 
+export interface ApiInstagramTestimonialInstagramTestimonial
+  extends Schema.CollectionType {
+  collectionName: 'instagram_testimonials';
+  info: {
+    singularName: 'instagram-testimonial';
+    pluralName: 'instagram-testimonials';
+    displayName: 'Instagram Testimonial';
+    description: 'Customer testimonials sourced from Instagram for the Happy Customers page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    customerName: Attribute.String & Attribute.Required;
+    instagramUrl: Attribute.String & Attribute.Required;
+    username: Attribute.String;
+    testimonialText: Attribute.Text;
+    profileImage: Attribute.Media;
+    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    displayOrder: Attribute.Integer & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::instagram-testimonial.instagram-testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::instagram-testimonial.instagram-testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLegalDocumentationGuideLegalDocumentationGuide
   extends Schema.CollectionType {
   collectionName: 'legal_documentation_guides';
@@ -3091,6 +3129,7 @@ declare module '@strapi/types' {
       'api::happy-customer.happy-customer': ApiHappyCustomerHappyCustomer;
       'api::high-tea.high-tea': ApiHighTeaHighTea;
       'api::home-interior.home-interior': ApiHomeInteriorHomeInterior;
+      'api::instagram-testimonial.instagram-testimonial': ApiInstagramTestimonialInstagramTestimonial;
       'api::legal-documentation-guide.legal-documentation-guide': ApiLegalDocumentationGuideLegalDocumentationGuide;
       'api::life.life': ApiLifeLife;
       'api::luxury-real-estate.luxury-real-estate': ApiLuxuryRealEstateLuxuryRealEstate;
