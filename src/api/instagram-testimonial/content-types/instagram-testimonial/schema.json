@@ -12,32 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "customerName": {
+    "ProjectName": {
       "type": "string",
       "required": true
     },
     "instagramUrl": {
       "type": "string",
       "required": true
-    },
-    "username": {
-      "type": "string"
-    },
-    "testimonialText": {
-      "type": "text"
-    },
-    "profileImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images"]
-    },
-    "isFeatured": {
-      "type": "boolean",
-      "default": false
-    },
-    "displayOrder": {
-      "type": "integer",
-      "default": 0
     }
   }
 }
