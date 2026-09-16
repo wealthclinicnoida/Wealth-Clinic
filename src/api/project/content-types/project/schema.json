@@ -189,6 +189,10 @@
       "type": "boolean",
       "default": false
     },
+    "projectOfTheWeek": {
+      "type": "boolean",
+      "default": false
+    },
     "Faqs": {
       "displayName": "Faqs",
       "type": "component",
