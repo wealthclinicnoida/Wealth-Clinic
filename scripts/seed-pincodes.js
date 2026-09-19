@@ -129,7 +129,7 @@ async function main() {
         postOffice: s.postOffice,
         postOfficeType: s.postOfficeType,
         city: city.entry.id,
-        area: area.entry.id,
+        areas: [area.entry.id],
         latitude: s.latitude,
         longitude: s.longitude,
         slug: s.pincode,

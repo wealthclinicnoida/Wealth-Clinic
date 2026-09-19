@@ -43,9 +43,9 @@
       "target": "api::create-city.create-city",
       "required": true
     },
-    "area": {
+    "areas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::area.area",
       "required": true
     },

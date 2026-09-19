@@ -14,6 +14,7 @@ const slugify = (value) =>
     .replace(/^-+|-+$/g, '');
 
 const resolveRelationId = (relation) => {
+  if (Array.isArray(relation)) relation = relation[0];
   if (!relation) return null;
   if (typeof relation === 'object') {
     if (Array.isArray(relation.connect) && relation.connect.length) {
@@ -49,7 +50,7 @@ module.exports = {
     if (!data.seoSlug) {
       const seoSlug = await buildSeoSlug({
         cityId: resolveRelationId(data.city),
-        areaId: resolveRelationId(data.area),
+        areaId: resolveRelationId(data.areas),
         pincode: data.pincode,
       });
       if (seoSlug) data.seoSlug = seoSlug;
@@ -62,12 +63,12 @@ module.exports = {
     if (data.seoSlug === '') {
       const existing = await strapi.db.query('api::pincode.pincode').findOne({
         where,
-        populate: { city: true, area: true },
+        populate: { city: true, areas: true },
       });
 
       const seoSlug = await buildSeoSlug({
         cityId: resolveRelationId(data.city) ?? existing?.city?.id,
-        areaId: resolveRelationId(data.area) ?? existing?.area?.id,
+        areaId: resolveRelationId(data.areas) ?? existing?.areas?.[0]?.id,
         pincode: data.pincode ?? existing?.pincode,
       });
       if (seoSlug) data.seoSlug = seoSlug;
