@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pincodes",
+  "info": {
+    "singularName": "pincode",
+    "pluralName": "pincodes",
+    "displayName": "Pincode",
+    "description": "Indian pincode / post office directory"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pincode": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 6,
+      "maxLength": 6,
+      "regex": "^[0-9]{6}$"
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "postOffice": {
+      "type": "string",
+      "required": true
+    },
+    "postOfficeType": {
+      "type": "enumeration",
+      "enum": [
+        "Head Office",
+        "Sub Office",
+        "Branch Office"
+      ],
+      "required": false
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::create-city.create-city",
+      "required": true
+    },
+    "area": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::area.area",
+      "required": true
+    },
+    "latitude": {
+      "type": "decimal",
+      "required": false
+    },
+    "longitude": {
+      "type": "decimal",
+      "required": false
+    },
+    "seoSlug": {
+      "type": "uid",
+      "required": true
+    },
+    "metaTitle": {
+      "type": "string",
+      "required": false
+    },
+    "metaDescription": {
+      "type": "text",
+      "required": false
+    },
+    "keywords": {
+      "type": "text",
+      "required": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "pincode",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "pincode.faq"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

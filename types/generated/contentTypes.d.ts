@@ -2207,13 +2207,8 @@ export interface ApiInstagramTestimonialInstagramTestimonial
     draftAndPublish: true;
   };
   attributes: {
-    customerName: Attribute.String & Attribute.Required;
+    ProjectName: Attribute.String & Attribute.Required;
     instagramUrl: Attribute.String & Attribute.Required;
-    username: Attribute.String;
-    testimonialText: Attribute.Text;
-    profileImage: Attribute.Media;
-    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
-    displayOrder: Attribute.Integer & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2550,6 +2545,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     >;
     exclusive: Attribute.Boolean & Attribute.DefaultTo<false>;
     newLaunches: Attribute.Boolean & Attribute.DefaultTo<false>;
+    projectOfTheWeek: Attribute.Boolean & Attribute.DefaultTo<false>;
     Faqs: Attribute.Component<'faqs.faqs', true>;
     projectSequence: Attribute.Decimal;
     min_Area: Attribute.Integer;
