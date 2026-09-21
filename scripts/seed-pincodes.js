@@ -17,8 +17,6 @@ const samples = [
     postOfficeType: 'Sub Office',
     city: 'Noida',
     area: 'Sector 62',
-    latitude: 28.6271,
-    longitude: 77.3649,
     featured: true,
     sortOrder: 1,
   },
@@ -29,8 +27,6 @@ const samples = [
     postOfficeType: 'Sub Office',
     city: 'Noida',
     area: 'Sector 44',
-    latitude: 28.5562,
-    longitude: 77.3439,
     sortOrder: 2,
   },
   {
@@ -40,8 +36,6 @@ const samples = [
     postOfficeType: 'Sub Office',
     city: 'Gurugram',
     area: 'DLF Phase 1',
-    latitude: 28.4744,
-    longitude: 77.0945,
     sortOrder: 3,
   },
   {
@@ -51,8 +45,6 @@ const samples = [
     postOfficeType: 'Head Office',
     city: 'Mumbai',
     area: 'Fort',
-    latitude: 18.9322,
-    longitude: 72.8354,
     sortOrder: 4,
   },
   {
@@ -62,8 +54,6 @@ const samples = [
     postOfficeType: 'Head Office',
     city: 'Bengaluru',
     area: 'MG Road',
-    latitude: 12.9757,
-    longitude: 77.6068,
     sortOrder: 5,
   },
 ];
@@ -130,8 +120,6 @@ async function main() {
         postOfficeType: s.postOfficeType,
         city: city.entry.id,
         areas: [area.entry.id],
-        latitude: s.latitude,
-        longitude: s.longitude,
         slug: s.pincode,
         seoSlug,
         metaTitle: `${s.pincode} Pin Code - ${s.area}, ${s.city}, ${s.state}`,

@@ -49,12 +49,8 @@
       "target": "api::area.area",
       "required": true
     },
-    "latitude": {
-      "type": "decimal",
-      "required": false
-    },
-    "longitude": {
-      "type": "decimal",
+    "mapEmbedLink": {
+      "type": "text",
       "required": false
     },
     "seoSlug": {
