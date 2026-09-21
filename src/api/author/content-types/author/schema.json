@@ -21,8 +21,12 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
-    "Description": {
-      "type": "richtext"
+   "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
