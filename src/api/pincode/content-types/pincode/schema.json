@@ -69,11 +69,7 @@
       "type": "text",
       "required": false
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "pincode",
-      "required": true
-    },
+    
     "description": {
       "type": "richtext",
       "required": false
