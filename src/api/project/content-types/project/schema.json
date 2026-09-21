@@ -167,6 +167,11 @@
       "relation": "oneToOne",
       "target": "api::area.area"
     },
+    "pincode": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pincode.pincode"
+    },
     "Priority": {
       "type": "boolean"
     },
