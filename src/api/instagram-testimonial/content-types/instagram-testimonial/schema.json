@@ -19,6 +19,14 @@
     "instagramUrl": {
       "type": "string",
       "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
