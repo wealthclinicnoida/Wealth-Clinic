@@ -22,6 +22,12 @@ module.exports = {
     const viewsBackfillTargets = [
       { uid: "api::blog.blog", label: "blog" },
       { uid: "api::project.project", label: "project" },
+      { uid: "api::city-local-living-guide.city-local-living-guide", label: "city-local-living-guide" },
+      { uid: "api::legal-documentation-guide.legal-documentation-guide", label: "legal-documentation-guide" },
+      { uid: "api::home-interior.home-interior", label: "home-interior" },
+      { uid: "api::luxury-real-estate.luxury-real-estate", label: "luxury-real-estate" },
+      { uid: "api::real-estate-vastu-guide.real-estate-vastu-guide", label: "real-estate-vastu-guide" },
+      { uid: "api::real-estate-news.real-estate-news", label: "real-estate-news" },
     ];
 
     for (const { uid, label } of viewsBackfillTargets) {
